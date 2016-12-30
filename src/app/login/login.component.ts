@@ -1,3 +1,4 @@
+import { IsauthService } from './../services/isauth/isauth.service';
 import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -14,7 +15,6 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(value) {
-    console.log(value);
+    this.auth.login(value);
   }
-
 }
