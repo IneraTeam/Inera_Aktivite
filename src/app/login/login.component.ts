@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   submitForm(value) {
     this.auth.login(value)
     .then(() => this.redirectHome());
+    // alert koyulacak
   }
 
   redirectHome(){
