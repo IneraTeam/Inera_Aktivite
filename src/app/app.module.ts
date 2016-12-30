@@ -10,7 +10,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { AngularFireModule } from 'angularfire2';
+import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,10 @@ import { AngularFireModule } from 'angularfire2';
     FormsModule,
     HttpModule,
     RouterModule.forRoot(theRouter),
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig,{
+      provider: AuthProviders.Custom,
+      method: AuthMethods.Password
+    })
   ],
   providers: [AuthService, IsauthService],
   bootstrap: [AppComponent]
