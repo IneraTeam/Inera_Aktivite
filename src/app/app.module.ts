@@ -1,3 +1,4 @@
+import { firebaseConfig } from './../assets/firebaseconfig';
 import { IsauthService } from './services/isauth/isauth.service';
 import { AuthService } from './services/auth/auth.service';
 import { theRouter } from './../assets/router';
@@ -9,6 +10,7 @@ import { Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AngularFireModule } from 'angularfire2';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(theRouter)
+    RouterModule.forRoot(theRouter),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   providers: [AuthService, IsauthService],
   bootstrap: [AppComponent]
