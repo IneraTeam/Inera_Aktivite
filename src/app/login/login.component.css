@@ -10,7 +10,6 @@
 
 .btn:focus{
   background: #16a085;
-  transition: background-image .6s;
 }
 
 #logo {
