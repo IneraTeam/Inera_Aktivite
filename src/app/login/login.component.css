@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+.btn {
+  background: #2980b9;
+  background-image: -webkit-linear-gradient(top, #2980b9, #2d78a6);
+  background-image: -moz-linear-gradient(top, #2980b9, #2d78a6);
+  background-image: -ms-linear-gradient(top, #2980b9, #2d78a6);
+  background-image: -o-linear-gradient(top, #2980b9, #2d78a6);
+  background-image: linear-gradient(to bottom, #2980b9, #2d78a6);
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: 'Open Sans', sans-serif;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+.btn:hover {
+  background: #16a085;
+  background-image: -webkit-linear-gradient(top, #16a085, #16a085);
+  background-image: -moz-linear-gradient(top, #16a085, #16a085);
+  background-image: -ms-linear-gradient(top, #16a085, #16a085);
+  background-image: -o-linear-gradient(top, #16a085, #16a085);
+  background-image: linear-gradient(to bottom, #16a085, #16a085);
+  text-decoration: none;
+}
+.logo-class{
+    padding : 20px ;
+    margin: 40px auto;
+    margin-top:80px;
+    display: block;
+    width:100%;
+    height: auto;
+}
+.panel{
+    box-sizing: border-box;
+    padding: 0px 25px 30px;
+    margin: 0 auto;
+    border-color: #f39c12;
+    
+}
+.form-signin #inputPassword{
+    direction: ltr;
+    height: 44px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    padding-left:30px;
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFcAAAB2CAMAAACK5v/NAAAAYFBMVEX///8AAADd3d0VFRW/v79QUFArKyvv7+8NDQ1lZWXY2NiGhob6+vrh4eHq6ur09PSTk5NFRUWampozMzPKysp+fn5tbW22trY/Pz+qqqoeHh5VVVVbW1ukpKQ5OTl1dXXWETLjAAACiElEQVRoge2a7XaCMAyGy5dCKSBaKOI27/8uN0XSorRNAXe2c/r+1OQxpKGpAULsqqg4ZF2fpmnfZQdBK4SPVUxkUTBVnwm2kkrbYF4tXUP90FBv+lhKLnWxjrqWS7BiZ8EGwU44U6vGSr2pcayNMkFhgyBxykX4NYP4qd+ZT79CPLZ4Tu0uOwpOQ8rFMXv5rkAnYRpt33A1ixVv+mnEyFRUteoVHV/dyuMkIzVu8a6qT7Ofv6RJuVwxWKF6xFqzWDVD1HGpLsl8sIP26gLaU5wpeTPvWkxZh8yG5dK2s22GrJPG3GIrY+jt11bKgqvR4doicDKX2c0RWEJyXIZlMZxMpSC1l7emKW2fYHVGYQk5g8enweoC4WL31eo0ulz0Rnv48QMSS8gBfPSZk/cmvidS8NHf8/DbCf58wKCz6K8RGjCuyAZBqbVaE1gDlz4L+99JawK7tcuRAxKc6iwqsHBpsiVEo6vNYjRAbDkKFzYfnVc4Ghj382fJ/V3X8YuVXF3D91zP9VzP9dxf5cZtMgjOvmniIuhv9eOD9n5CkUfN7dQ8/a/ZTILUdqMFqslbsEHgub/ETc/xep3TF26EHnsYVESvXIc5jVah53qu5/5tbsjtJu7c4tYIa8vm5M4dzyxmsDt3HE3ohwyLuNXoEBkHSs5cOVEyHt0813M913M9959wq3EY22/bL97V30gxBNxv3Y8JvT2LuVgG74vOO5Rax/l/6nzmuZ67AXfjOQFMIvSPEfGCYVwq52e9KMJ1KmIYVdbqGDFaK4nK1UfsG4oTdrJbOWvH3jP4vNeA7fUqdw3vFjDT22BLdHk81WbbRpzJh+Xxdos3fXeM8byee6vKTWmX80ew33fmJ+oGA4+BAAAAAElFTkSuQmCC') no-repeat;
+    background-position : 4px;
+    background-size: 13px;
+    background-position-x: 7px;
+
+}  
+
+.form-signin #inputUsername
+{
+    direction: ltr;
+    height: 44px;
+    font-size: 18px;
+    font-family: 'Open Sans', sans-serif;
+    padding-left:30px;
+    background: url('data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDQxOS42MTcgNDE5LjYxNyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDE5LjYxNyA0MTkuNjE3OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQ4LjU5Miw0MDIuNjE3YzAsOS4zNSw3LjY1LDE3LDE3LDE3aDI4OC40MzNjOS4zNSwwLDE3LTcuNjUsMTctMTdjMC05NC4wNjctNDIuNS0xNzQuODE3LTEwMi4yODMtMjA3LjExNyAgICBjMjguOS0xOC45ODMsNDcuODgzLTUxLjg1LDQ3Ljg4My04OC45NjdDMzE2LjYyNSw0Ny44ODMsMjY4Ljc0MiwwLDIxMC4wOTIsMFMxMDMuMjc1LDQ3LjYsMTAzLjI3NSwxMDYuNTMzICAgIGMwLDM3LjExNywxOC45ODMsNjkuNyw0Ny44ODMsODguOTY3QzkxLjA5MiwyMjcuOCw0OC41OTIsMzA4LjU1LDQ4LjU5Miw0MDIuNjE3eiBNMjA5LjgwOCwzNCAgICBjMzkuOTUsMCw3Mi41MzMsMzIuNTgzLDcyLjUzMyw3Mi41MzNzLTMyLjU4Myw3Mi41MzMtNzIuNTMzLDcyLjUzM3MtNzIuNTMzLTMyLjU4My03Mi41MzMtNzIuNTMzUzE2OS44NTgsMzQsMjA5LjgwOCwzNHogICAgIE0yMDkuODA4LDIxMy45MTdjNjYuMywwLDEyMC43LDc1LjY1LDEyNi42NSwxNzEuN2gtMjUzLjNDODkuMTA4LDI4OS41NjcsMTQzLjUwOCwyMTMuOTE3LDIwOS44MDgsMjEzLjkxN3oiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K') no-repeat;
+    background-position: 2px;
+    background-size: 18px;
+    background-position-x: 5px;
+    
+   
+ 
+}
+
+.checkbox{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+}
+.form-signin input[type=username],
+.form-signin input[type=password],
+.form-signin input[type=text],
+.form-signin button {
+    display: block;
+    margin-bottom: 10px;
+    z-index: 1;
+    position: relative;
+    
+}
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgb(104, 145, 162);
+   
+}
+.form-signin{
+    margin-top:80px;
+}
