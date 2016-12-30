@@ -36,10 +36,10 @@
 }
 
 input[id^='input']{
-  background-size: 16px;
   margin: 6% 0%;
   font-size: 15px;
   padding: 0px 10px 0px 36px;
+  background-size: 16px;
   background-position: 10px;
   background-repeat: no-repeat;
 }
