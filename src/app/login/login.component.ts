@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     // alert koyulacak
   }
 
-  redirectHome(){
+  redirectHome() {
     this.router.navigate(['/home']);
   }
 }
