@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TestBed } from '@angular/core/testing';
 import { Injectable } from '@angular/core';
 import { AngularFire } from 'angularfire2';
@@ -21,6 +22,7 @@ export class AuthService {
     this.af.auth.login(input).then(user => {
       this.user = user;
       localStorage.setItem('currentUser', user.uid);
+      // tslint:disable-next-line:no-unused-expression
     })
       .catch(() => this.user = {});
   }
