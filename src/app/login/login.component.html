@@ -1,29 +1,14 @@
-<form #form="ngForm" (ngSubmit)="submitForm(form.value)">
-  <div class="form-group">
-    <input type="text" class="form-control" placeholder="E-Mail" name="email" ngModel required>
-    <input type="password" class="form-control" placeholder="Password" name="password" ngModel required>
-    <button type="submit" class="btn btn-default">Login</button>
-  </div>
-</form>
 <div class="container">
-    <div class="panel">
-      <img id="logo-img" class="logo-class" src="./../../assets/images/logo.png"/>
-      <form class="form-signin ">
-        <div class="inputUser">
-            
-            <input type="username" id="inputUsername" class="form-control"  placeholder="Kullanıcı Adı" required autofocus>
-        </div>
-        <div class="inputUser">
-            <input type="password" id="inputPassword" class="form-control" placeholder="Şifre"autofocus>
-        </div>
-        <div id="remember" class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Beni Hatırla
-                    </label>
-        </div> 
-        <button class="btn btn-lg btn-primary btn-block " type="submit">Giriş</button>
-      </form>
-      
-      
-    </div>
+  <div class="panel">
+    <img id="logo-img" class="logo-class" src="./../../assets/images/logo.png" />
+    <form class="form-signin">
+      <div class="inputUser">
+        <input type="username" id="inputUsername" class="form-control" placeholder="Kullanıcı Adı" required autofocus>
+      </div>
+      <div class="inputUser">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Şifre" autofocus>
+      </div>
+      <button class="btn btn-lg btn-primary btn-block " type="submit">Giriş</button>
+    </form>
+  </div>
 </div>
