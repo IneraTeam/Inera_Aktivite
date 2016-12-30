@@ -1,15 +1,16 @@
 
 .btn {
-  margin:0;
   background: #2980b9;
   background-image: -webkit-linear-gradient(top, #2980b9, #2d78a6);
   background-image: linear-gradient(to bottom, #2980b9, #2d78a6);
-  border-radius: 4px;
-  color: #ffffff;
   font-size: 20px;
-  padding: 10px 20px 10px 20px;
   letter-spacing: 1px;
   line-height: 1;
+}
+
+.btn:focus{
+  background: #16a085;
+  transition: background-image .6s;
 }
 
 #logo {
@@ -20,13 +21,12 @@
 }
 
 .panel {
-  padding: 0px 6%;
-  /*border-color: #f39c12;*/
+  padding: 0px 6%;  
 }
 
-.form-signin #inputPassword {
-  /*font-family: 'Open Sans', sans-serif;*/
-  background-image: url('./../../assets/icons/password.svg');
+.footer{
+  font-size:10px;
+  text-align:center;
 }
 
 .form-control {
@@ -46,6 +46,10 @@ input[id^='input']{
 
 .form-signin #inputUsername {
   background-image: url('./../../assets/icons/user.svg');
+}
+
+.form-signin #inputPassword {
+  background-image: url('./../../assets/icons/password.svg');
 }
 
 .form-signin .form-control:focus {
