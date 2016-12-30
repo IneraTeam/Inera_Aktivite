@@ -1,24 +1,18 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
 .btn {
-  width: 100%;
+  margin:0;
   background: #2980b9;
   background-image: -webkit-linear-gradient(top, #2980b9, #2d78a6);
-  background-image: -moz-linear-gradient(top, #2980b9, #2d78a6);
-  background-image: -ms-linear-gradient(top, #2980b9, #2d78a6);
-  background-image: -o-linear-gradient(top, #2980b9, #2d78a6);
   background-image: linear-gradient(to bottom, #2980b9, #2d78a6);
-  -webkit-border-radius: 4;
-  -moz-border-radius: 4;
   border-radius: 4px;
-  font-family: 'Open Sans', sans-serif;
   color: #ffffff;
   font-size: 20px;
   padding: 10px 20px 10px 20px;
-  text-decoration: none;
   letter-spacing: 1px;
+  line-height: 1;
 }
 
-.logo-class {
+#logo {
   padding: 20% 20px;
   margin: 40px auto;
   display: block;
@@ -37,9 +31,15 @@
 
 .form-control {
   height: 44px;
-  margin: 6% 0%;
-  padding: 0px 10px 0px 36px;
+  -webkit-border-radius: 4;
+  border-radius: 4px;
+}
+
+input[id^='input']{
   background-size: 16px;
+  margin: 6% 0%;
+  font-size: 15px;
+  padding: 0px 10px 0px 36px;
   background-position: 10px;
   background-repeat: no-repeat;
 }
