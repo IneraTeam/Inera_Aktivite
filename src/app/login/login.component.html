@@ -1,9 +1,9 @@
 <div class="container">
   <div class="panel">
     <img id="logo" src="./../../assets/images/logo.png" />
-    <form class="form-signin">
-      <input type="username" id="inputUsername" class="form-control" placeholder="Kullanıcı Adı" required autofocus>
-      <input type="password" id="inputPassword" class="form-control" placeholder="Şifre" autofocus>
+    <form #form="ngForm" class="form-signin" (ngSubmit)="submitForm(form.value)" >
+      <input type="username" id="inputUsername" class="form-control" placeholder="Kullanıcı Adı" name="email" ngModel required autofocus>
+      <input type="password" id="inputPassword" class="form-control" placeholder="Şifre" name="password" ngModel autofocus>
       <button class="btn btn-primary form-control" type="submit">Giriş</button>
     </form>
   </div>
