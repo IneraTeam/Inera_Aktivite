@@ -23,7 +23,7 @@ import { AngularFireModule, AuthProviders, AuthMethods, FIREBASE_PROVIDERS } fro
     FormsModule,
     HttpModule,
     RouterModule.forRoot(theRouter),
-    AngularFireModule.initializeApp(firebaseConfig,{
+    AngularFireModule.initializeApp(firebaseConfig, {
       provider: AuthProviders.Password,
       method: AuthMethods.Password
     })
