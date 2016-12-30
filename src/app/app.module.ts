@@ -1,15 +1,16 @@
+import { firebaseConfig } from './../assets/firebaseconfig';
 import { IsauthService } from './services/isauth/isauth.service';
 import { AuthService } from './services/auth/auth.service';
 import { theRouter } from './../assets/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {AngularFire, FirebaseListObservable, AngularFireModule} from 'angularfire2';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { Routes, RouterModule} from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { AngularFireModule, AuthProviders, AuthMethods, FIREBASE_PROVIDERS } from 'angularfire2';
 
  export const config = {
     apiKey: "AIzaSyAd7cUm4qlXG1Q2xDV-rTiHSgluz6Ol0hA",
@@ -29,7 +30,11 @@ import { HomeComponent } from './home/home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(theRouter)
+    RouterModule.forRoot(theRouter),
+    AngularFireModule.initializeApp(firebaseConfig,{
+      provider: AuthProviders.Password,
+      method: AuthMethods.Password
+    })
   ],
   providers: [AuthService, IsauthService],
   bootstrap: [AppComponent]
