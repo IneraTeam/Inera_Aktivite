@@ -20,10 +20,9 @@ export class AuthService {
   login(input) {
     this.af.auth.login(input).then(user => {
       this.user = user;
+      localStorage.setItem('currentUser', user.uid);
     })
-    .catch(error => {
-      console.log(error);
-    });
+      .catch(() => this.user = {});
   }
 
   logout() {
