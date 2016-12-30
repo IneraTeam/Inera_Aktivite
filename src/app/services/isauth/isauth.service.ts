@@ -1,15 +1,11 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 
 @Injectable()
 export class IsauthService implements CanActivate {
-  constructor(private router: Router) { }
+  constructor(private router: Router, private af: AuthService) { }
   canActivate() {
-    if (localStorage.getItem('currentUser')) {
-      return true;
-    } else {
-      this.router.navigate(['/login']);
-      return false;
-    }
+    return this.af.authenticated ? true : false;
   }
 }

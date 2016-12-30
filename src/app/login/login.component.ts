@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(value) {
-    console.log(this.auth.login(value));
+    this.auth.login(value)
+    .then(() => this.redirectHome());
+  }
+
+  redirectHome(){
+    this.router.navigate(['/home']);
   }
 }

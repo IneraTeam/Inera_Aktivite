@@ -1,32 +1,30 @@
 import { Router } from '@angular/router';
 import { Injectable } from '@angular/core';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseAuthState } from 'angularfire2';
 
 @Injectable()
 export class AuthService {
-  public user = {};
+  private authState: FirebaseAuthState;
   constructor(private af: AngularFire) {
-    this.af.auth.subscribe(user => {
-      if (user) {
-        this.user = user;
-        localStorage.setItem('currentUser', user.uid);
-      } else {
-        this.user = {};
-        localStorage.removeItem('currentUser');
-      }
+    this.af.auth.subscribe((state: FirebaseAuthState) => {
+      this.authState = state;
     });
   }
 
-  login(input) {
-    this.af.auth.login(input).then(user => {
-      this.user = user;
-      localStorage.setItem('currentUser', user.uid);
-    })
-      .catch(() => this.user = {});
+  get authenticated(): boolean{
+    return this.authState !== null;
+  }
+
+  get id(): string{
+    return this.authenticated ? this.authState.uid : '';
+  }
+
+  login(input): firebase.Promise<FirebaseAuthState>{
+    return this.af.auth.login(input)
+    .catch(err => console.log('AuthService#login :', err));
   }
 
   logout() {
     this.af.auth.logout();
-    localStorage.removeItem('currentUser');
   }
 }
