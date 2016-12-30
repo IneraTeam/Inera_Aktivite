@@ -12,14 +12,6 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AngularFireModule, AuthProviders, AuthMethods, FIREBASE_PROVIDERS } from 'angularfire2';
 
- export const config = {
-    apiKey: "AIzaSyAd7cUm4qlXG1Q2xDV-rTiHSgluz6Ol0hA",
-    authDomain: "inera1-e7f24.firebaseapp.com",
-    databaseURL: "https://inera1-e7f24.firebaseio.com",
-    storageBucket: "inera1-e7f24.appspot.com",
-    messagingSenderId: "510388167767"
-  };
-
 @NgModule({
   declarations: [
     AppComponent,
