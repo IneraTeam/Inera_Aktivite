@@ -1,6 +1,7 @@
 import { IsauthService } from './../services/isauth/isauth.service';
 import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,12 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  constructor(private auth: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
   submitForm(value) {
-    this.auth.login(value);
+    console.log(this.auth.login(value));
   }
 }
