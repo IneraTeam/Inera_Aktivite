@@ -4,7 +4,7 @@
     
     redirectHome() {
     this.router.navigate(['/home']);
-  }
+  } 
 */
 
 // auth.service.ts
