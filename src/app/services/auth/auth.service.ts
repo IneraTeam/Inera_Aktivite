@@ -10,21 +10,4 @@ export class AuthService {
       this.authState = state;
     });
   }
-
-  get authenticated(): boolean{
-    return this.authState !== null;
-  }
-
-  get id(): string{
-    return this.authenticated ? this.authState.uid : '';
-  }
-
-  login(input): firebase.Promise<FirebaseAuthState>{
-    return this.auth.login(input)
-    .catch(err => console.log('AuthService#login :', err));
-  }
-
-  logout() {
-    this.auth.logout();
-  }
 }
