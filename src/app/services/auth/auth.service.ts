@@ -10,4 +10,11 @@ export class AuthService {
       this.authState = state;
     });
   }
+
+dilek(param){
+
+console.log(param);
+return param;
+
+}
 }

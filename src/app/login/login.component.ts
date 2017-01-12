@@ -16,5 +16,8 @@ export class LoginComponent implements OnInit {
   }
 
   submitForm(value) {
+
+this.auth.dilek(value)
+
   }
 }
