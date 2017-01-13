@@ -2,9 +2,8 @@
 
 <form #form="ngForm" class="form-signin" (ngSubmit)="form.valid&&signIn(form.value)">
 
-  <input type="username" id="inputUsername" placeholder="&#61447; İsim Soyisim" name="names" #names="ngModel" ngModel required>
-  <input type="email" id="inputEmail" placeholder="&#xf0e0; E-Mail" name="email"  #email="ngModel" ngModel required>
-  <input type="password" id="inputPassword" placeholder="&#xf023; Şifre" #password="ngModel"  ngModel required>
-
-  <button type="submit"  [disabled]="!form.valid"> Kayıt Ol </button>
+  <input type="username" id="inputUsername" class="form-control" placeholder="&#61447; İsim Soyisim" name="names" #names="ngModel" ngModel required>
+  <input type="email" id="inputEmail" class="form-control" placeholder="&#xf0e0; E-Mail" name="email"  #email="ngModel" ngModel required>
+  <input type="password" id="inputPassword" class="form-control" placeholder="&#xf023; Şifre" #password="ngModel"  ngModel required>
+  <button class="btn type="submit"  [disabled]="!form.valid"> Kayıt Ol </button>
   </form>
