@@ -1,0 +1,7 @@
+<img class="logo" src="./../../assets/images/logo.png" />
+<form novalidate #form="ngForm" class="form-signin" (ngSubmit)="form.valid && signIn(form.value)">
+  <input type="username" id="inputUsername" class="form-control" placeholder="&#61447;     İsim Soyisim" name="names" #names="ngModel" ngModel required>
+  <input type="email" id="inputEmail" class="form-control" placeholder="&#xf0e0;     E-Mail" name="email" #email="ngModel" ngModel required>
+  <input type="password" id="inputPassword" class="form-control" placeholder="&#xf023;     Şifre" name="password" #password="ngModel" ngModel required>
+  <button class="btn btn-primary form-control" type="submit" [disabled]="!form.valid">Kayıt Ol</button>
+</form>

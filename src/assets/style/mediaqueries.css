@@ -1,0 +1,30 @@
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* iPhone 5 */
+    .menu-item {
+        height: 80px;
+        width: 80px;
+    }
+    .text-profile {
+        height: 60px;
+    }
+    .small {
+        height: 60px;
+        width: 60px;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* iPhone 6 */
+    .menu-item {
+        height: 90px;
+        width: 90px;
+    }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    /* iPhone 6 + */
+    .menu-item {
+        height: 100px;
+        width: 100px;
+    }
+}
