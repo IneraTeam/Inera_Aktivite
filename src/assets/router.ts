@@ -12,4 +12,4 @@ const theRouter: Routes = [
     {path: '**', redirectTo: 'home', pathMatch: 'full'}
 ]
 
-export const routerInit = RouterModule.forRoot(theRouter);
+export const rootRouter = RouterModule.forRoot(theRouter);
