@@ -10,7 +10,7 @@ export class HomeComponent implements OnInit {
   public name: string;
   public role: string;
   constructor(private user: UserService) {
-    this.user.getUserBasics().then( basics => {
+    this.user.basics.then( basics => {
       this.name = basics.name;
       this.role = basics.role;
     });

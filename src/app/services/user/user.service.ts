@@ -18,7 +18,7 @@ export class UserService {
       .$ref.once('value');
   }
 
-  getUserBasics() {
+  get basics() {
     return this.info.then((snapshot) => {
       return {
         name: snapshot.child('/name/').val(),
