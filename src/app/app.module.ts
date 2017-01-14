@@ -2,34 +2,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { routerInit } from '../assets/router';
-import { RouterModule } from '@angular/router';
-import { AuthService } from './services/auth/auth.service';
+import { rootRouter } from '../assets/router';
 import { firebaseInit } from '../assets/firebase';
-import { UserService, IsUserLoggedIn } from './services/user/user.service';
-import { HomeComponent } from './home/home.component';
-import { SignComponent } from './sign/sign.component';
-import { CapitalizePipe } from './pipes/capitalize';
+import { rootComponents, pipes, rootServices } from './services/moduleItems';
+import { InModule } from './services/in.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    HomeComponent,
-    SignComponent,
-    CapitalizePipe
+    rootComponents,
+    pipes
   ],
   imports: [
     BrowserModule,
+    InModule,
     FormsModule,
     HttpModule,
-    routerInit,
+    rootRouter,
     firebaseInit
   ],
-  providers: [AuthService, UserService, IsUserLoggedIn],
+  providers: [rootServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
