@@ -5,8 +5,8 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { rootRouter } from '../assets/router';
 import { firebaseInit } from '../assets/firebase';
-import { rootComponents, pipes, rootServices } from './services/moduleItems';
-import { InModule } from './services/in.module';
+import { InModule } from './modules/in.module';
+import { rootComponents, rootServices, pipes } from './modules/rootItems';
 
 @NgModule({
   declarations: [

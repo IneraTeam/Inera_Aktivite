@@ -1,9 +1,12 @@
 import { NgModule } from '@angular/core';
+// routes
 import { childRouter } from '../../assets/router';
-
+// client components
 import { ClientComponent } from '../clientshell/client/client.component';
 import { ClientdetailComponent } from '../clientshell/clientdetail/clientdetail.component';
 import { CShellComponent } from '../clientshell/clientshell.component';
+// services
+import { UserService } from '../services/user/user.service';
 
 @NgModule({
   declarations: [
@@ -14,7 +17,7 @@ import { CShellComponent } from '../clientshell/clientshell.component';
   imports: [
     childRouter
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: []
 })
 export class InModule { }
