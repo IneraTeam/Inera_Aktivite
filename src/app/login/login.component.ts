@@ -19,4 +19,7 @@ export class LoginComponent implements OnInit {
     this.user.login(value);
   }
 
+  redirectSignIn() {
+    this.user.navigateURL('sign');
+  }
 }
