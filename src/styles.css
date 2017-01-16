@@ -7,9 +7,9 @@ body{
 }
 
 .form-signin {
-    max-width: 330px;
-    padding: 15px;
-    margin: 0 auto;
+max-width: 330px;
+padding: 50px;
+margin: 0 auto;
 }
 
 .form-control{
@@ -17,3 +17,52 @@ body{
     line-height: 1.6px;
     margin-bottom: 15px;
 }
+
+.panel {
+
+    display: inline-block;
+    text-align: center;
+/*padding: 0px 6%;  */
+}
+
+#logo {
+  padding: 20% 20px;
+
+  display: block;
+  width: 100%;
+  margin: 40px auto;
+}
+
+
+/*body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
+
+.form-signin {
+   max-width: 330px;
+    padding: 15px;
+margin: 0 auto;
+}
+
+.form-control{
+    font-family: FontAwesome, "Open Sans" , sans-serif;
+    line-height: 1.6px;
+    margin-bottom: 15px;
+}
+
+.panel {
+
+    display: inline-block;
+    text-align: center;
+/*padding: 0px 6%;  */
+/*}
+
+
+#logo {
+  padding: 30% 30px;
+
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+}*/
