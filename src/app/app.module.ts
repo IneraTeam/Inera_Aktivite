@@ -1,3 +1,4 @@
+import { UserService } from './services/user/user.service';
 import { firebaseConfig } from './../assets/firebaseconfig';
 import { IsauthService } from './services/isauth/isauth.service';
 import { AuthService } from './services/auth/auth.service';
@@ -30,7 +31,7 @@ import { SignComponent } from './sign/sign.component';
       method: AuthMethods.Password
     })
   ],
-  providers: [AuthService, IsauthService],
+  providers: [AuthService, IsauthService,UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
