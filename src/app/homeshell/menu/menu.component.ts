@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../../services/user/user.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -10,11 +10,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   public role;
-  constructor(private router: ActivatedRoute) {
-    this.router.params.subscribe(param => {
+  public isNavigated: boolean;
+  constructor(private actv: ActivatedRoute, private router:Router) {
+    this.actv.params.subscribe(param => {
       this.role = param['role'];
     });
   }
   ngOnInit() {
+  }
+
+  nav(event$, target) {
+    this.router.navigate(['home',
+    { outlets: { inside: `${target}`} }
+    ]);
   }
 }

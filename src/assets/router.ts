@@ -23,7 +23,7 @@ const rootRoutes: Routes = [
         ]
     },
     { path: 'sign', component: SignComponent },
-    { path: '**', redirectTo: 'home' }
-]
+    //{ path: '**', redirectTo: 'home' }
+];
 
 export const rootRouter = RouterModule.forRoot(rootRoutes);

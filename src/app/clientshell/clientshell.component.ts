@@ -1,3 +1,4 @@
+import { UserService } from './../services/user/user.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CShellComponent implements OnInit {
 
-  constructor() { }
+  constructor(private user: UserService) { }
 
   ngOnInit() {
   }

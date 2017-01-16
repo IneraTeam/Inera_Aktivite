@@ -22,7 +22,7 @@ export class UserService {
     return this.info.then((snapshot) => {
       return {
         name: snapshot.child('/name/').val(),
-        role: snapshot.child('/role/').val()
+        role: snapshot.child('/role/').val(),
       }
     });
   }

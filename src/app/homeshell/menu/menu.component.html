@@ -1,40 +1,38 @@
-<div class="menu">
-    <ul class="list-group">
-        <li class=" menu-item" *ngIf="role=== 'admin'">
-            <a class="menu-router" routerLink="/client/" routerLinkActive="active">
-                <i class="fa fa-handshake-o menu-icon"></i>
-                <span>Müşteriler</span>
-            </a>
-        </li>
-        <li class=" menu-item" *ngIf="role==='admin'">
-            <a class="menu-router" routerLink="/project/" routerLinkActive="active">
-                <i class="fa fa-folder-open-o menu-icon"></i>
-                <span>Projeler</span>
-            </a>
-        </li>
-        <li class=" menu-item" *ngIf="role=== 'admin'">
-            <a class="menu-router" routerLink="/user/" routerLinkActive="active">
-                <i class="fa fa-user-o menu-icon"></i>
-                <span>Kullanıcılar</span>
-            </a>
-        </li>
-        <li class=" menu-item">
-            <a class="menu-router" routerLink="/activity/" routerLinkActive="active">
-                <i class="fa fa-plus-square-o menu-icon"></i>
-                <span>Aktiviteler</span>
-            </a>
-        </li>
-        <li class=" menu-item">
-            <a class="menu-router" routerLink="/expese/" routerLinkActive="active">
-                <i class="fa fa-money menu-icon"></i>
-                <span>Masraflar</span>
-            </a>
-        </li>
-        <li class=" menu-item">
-            <a class="menu-router" routerLink="/settings/" routerLinkActive="active">
-                <i class="fa fa-sliders menu-icon"></i>
-                <span>Ayarlar</span>
-            </a>
-        </li>
-    </ul>
-</div>
+<ul class="list-group">
+    <li class=" menu-item" *ngIf="role=== 'admin'" (click)="nav($event,'client')">
+        <div class="menu-router">
+            <i class="fa fa-handshake-o menu-icon"></i>
+            <span>Müşteriler</span>
+        </div>
+    </li>
+    <li class=" menu-item" *ngIf="role==='admin'">
+        <a class="menu-router" routerLink="/project/" routerLinkActive="active">
+            <i class="fa fa-folder-open-o menu-icon"></i>
+            <span>Projeler</span>
+        </a>
+    </li>
+    <li class=" menu-item" *ngIf="role=== 'admin'">
+        <a class="menu-router" routerLink="/user/" routerLinkActive="active">
+            <i class="fa fa-user-o menu-icon"></i>
+            <span>Kullanıcılar</span>
+        </a>
+    </li>
+    <li class=" menu-item">
+        <a class="menu-router" routerLink="/activity/" routerLinkActive="active">
+            <i class="fa fa-plus-square-o menu-icon"></i>
+            <span>Aktiviteler</span>
+        </a>
+    </li>
+    <li class=" menu-item">
+        <a class="menu-router" routerLink="/expese/" routerLinkActive="active">
+            <i class="fa fa-money menu-icon"></i>
+            <span>Masraflar</span>
+        </a>
+    </li>
+    <li class=" menu-item">
+        <a class="menu-router" routerLink="/settings/" routerLinkActive="active">
+            <i class="fa fa-sliders menu-icon"></i>
+            <span>Ayarlar</span>
+        </a>
+    </li>
+</ul>
