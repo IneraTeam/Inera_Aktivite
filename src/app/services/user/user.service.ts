@@ -7,7 +7,7 @@ export class UserService {
   private userPath: string = '/users/';
 
   constructor(private _auth: AuthService) {
-    this.userID = this._auth.id;
+ // this.userID = this._auth.;
    }
 
 

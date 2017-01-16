@@ -18,7 +18,7 @@ get authenticated(): boolean {
 }
 
 get id() {
-return this.authenticated ? this.authState.uid: '';// '' nedemek?
+return this.authenticated ? this.authState.uid: '';// '' nedemek?varsa id döndür yoksa boş döndür.
 }
 
 
@@ -27,7 +27,7 @@ return this.authenticated ? this.authState.uid: '';// '' nedemek?
     return this.auth.createUser({
       email: input.email,
       password: input.password
-    })// şimdilik sadece add user yapılıyor. Ama kayıtlar firebase e atılmıyor.
+    })// şimdilik sadece add user yapılıyor. Ama kayıtlar da afirebase e gidiyor.
   };
 
 
