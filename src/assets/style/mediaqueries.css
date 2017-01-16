@@ -5,7 +5,7 @@
         width: 80px;
     }
     .name-text {
-        height: 60px;
+        height: 60px !important;
     }
     .small {
         height: 60px;
