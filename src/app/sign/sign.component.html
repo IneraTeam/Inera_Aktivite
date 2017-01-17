@@ -1,5 +1,9 @@
 <div class="form-signin">
   <img class="logo" src="./../../assets/images/logo.png" />
+ 
+    <div class="alert alert-danger" *ngIf="error" role="alert"> <p> {{error_message}} </p>
+  </div>
+
   <form #form="ngForm" class="form-signin" (ngSubmit)="form.valid&&signIn(form.value)">
     <input type="username" id="inputUsername" class="form-control" placeholder="&#61447;     İsim Soyisim" name="names" #names="ngModel"
       ngModel required>
@@ -12,4 +16,13 @@
 </div>
 
 
-<!--    <button class="btn btn-primary form-control" type=" submit " [disabled]="!form.valid "> Kayıt Ol </button> !-->
+<!--    <button class="btn btn-primary form-control" type=" submit " [disabled]="!form.valid "> Kayıt Ol </button> 
+
+**sign ekranında çıkan error mesajını X'e tıklayarak kapatmak için:
+    <div class="alert alert-danger alert-dissmissible" *ngIf="error" role="alert"> 
+    <button type="button" class="close" data-dissmiss="alert" aria-label="close"><p> {{error_message}} </p>
+      <span aria-hidden="true">&times;</span>
+    </button>
+        </div>
+
+!-->
