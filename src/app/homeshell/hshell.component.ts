@@ -14,31 +14,12 @@ export class HShellComponent implements OnInit {
   public minHeader: boolean = true;
   constructor(private user: UserService, private router: Router) {
     this.user.basics.then(basics => {
+      this.isHome = true;
       this.name = basics.name;
       this.role = basics.role;
-    }).then(() => this.routeMenu());
-
-    this.router.events.subscribe(routerEvent => {
-      if (routerEvent instanceof NavigationEnd) {
-        this.isHome = false;
-        setTimeout(() => {
-          if (this.isHomePage(routerEvent.url)) { this.isHome = true; }
-          this.minHeader = !this.minHeader;
-        }, 200);
-      }
     });
   }
 
   ngOnInit() {
-  }
-
-  routeMenu() {
-    this.router.navigate(['home', {
-      outlets: { inside: `menu/${this.role}` }
-    }]);
-  }
-
-  isHomePage(url$): boolean {
-    return url$.indexOf('admin') > -1 ? true : false;
   }
 }

@@ -41,7 +41,9 @@ export class UserService {
   }
 
   navigateURL(path?: string) {
-    this.router.navigate([path ? '/' + path : '/home']);
+    this.basics.then( basics => {
+      this.router.navigateByUrl(`/home/(inside:menu/${basics.role})`);
+    });
   }
 }
 

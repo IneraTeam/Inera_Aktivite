@@ -1,13 +1,4 @@
-<div class="header" [ngClass]="{ 'mini' : minHeader }">
-    <div class="profile" [ngClass]="{ 'show': isHome, 'hide' : !isHome }">
-        <div class="thumb_image">
-            <img class="small img-circle" src="./../../assets/images/pic_null.png" />
-        </div>
-        <div class="vh-center name-text">
-            <span> {{ name | capitalize }} </span>
-        </div>
-    </div>
-</div>
+<app-header [name] = "name" [role] = "role"></app-header>
 <div class="outlet">
-    <router-outlet name='inside'></router-outlet>
+  <router-outlet name='inside'></router-outlet>
 </div>
