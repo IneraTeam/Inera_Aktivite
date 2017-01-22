@@ -34,7 +34,7 @@ export class AuthService {
       return this.list(`/users/${this.id}`).push('')
         .ref.parent.set({
           name: input.names,
-          role: 'user'
+          role: 'admin'
         });
     });
   }

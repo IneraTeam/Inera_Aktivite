@@ -41,9 +41,13 @@ export class UserService {
   }
 
   navigateURL(path?: string) {
-    this.basics.then( basics => {
-      this.router.navigateByUrl(`/home/(inside:menu/${basics.role})`);
-    });
+    if (path) {
+      this.router.navigate([path]);
+    } else {
+      this.basics.then(basics => {
+        this.router.navigateByUrl(`/home/(inside:menu/${basics.role})`);
+      });
+    }
   }
 }
 
