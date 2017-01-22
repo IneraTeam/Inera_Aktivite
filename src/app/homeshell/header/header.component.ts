@@ -1,7 +1,6 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { UserService } from './../../services/user/user.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/core';
 import { headerAnimation } from '../../../assets/animations';
 
 @Component({
