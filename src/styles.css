@@ -21,7 +21,7 @@ body {
 .header {
   height: 90px;
   padding: 15px 0;
-  transition: height .4s ease;
+  transition: height .7s ease;
 }
 
 .mini {
@@ -46,10 +46,7 @@ body {
 }
 
 .vh-center {
-  display: flex;
-  height: inherit;
-  justify-content: center;
-  align-items: center;
+
 }
 
 .small {

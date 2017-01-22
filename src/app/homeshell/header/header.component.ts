@@ -1,11 +1,14 @@
 import { Router, NavigationEnd } from '@angular/router';
 import { UserService } from './../../services/user/user.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { trigger, transition, style, animate } from '@angular/core';
+import { headerAnimation } from '../../../assets/animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+  styleUrls: ['./header.component.css'],
+  animations: [ headerAnimation()]
 })
 export class HeaderComponent implements OnInit {
   @Input() name: string;
@@ -19,7 +22,7 @@ export class HeaderComponent implements OnInit {
         setTimeout(() => {
           if (this.isHomePage(routerEvent.url)) { this.isHome = true; }
           this.minHeader = !this.minHeader;
-        }, 200);
+        }, 300);
       }
     });
   }
@@ -36,5 +39,4 @@ export class HeaderComponent implements OnInit {
   isHomePage(url$): boolean {
     return url$.indexOf('menu') > -1 ? true : false;
   }
-
 }

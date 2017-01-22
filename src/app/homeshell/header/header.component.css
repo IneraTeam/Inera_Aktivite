@@ -7,7 +7,6 @@
 }
 
 .thumb_image {
-  float: left;
   margin-right: 15px;
 }
 
@@ -18,8 +17,24 @@
   align-items: center;
 }
 
-.vh-center>span {
+.vh-center {
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+
+.name-text {
   font-weight: bold;
-  font-size: 15px;
-  letter-spacing: 2px;
+  padding-left: 15px;
+}
+
+.profile {
+  display: -webkit-box;
+  -webkit-box-align: center;
+}
+
+.navmenu {
+  display: -webkit-box;
+  height: 100%;
+  -webkit-box-align: center;
+  max-height: 50px;
 }

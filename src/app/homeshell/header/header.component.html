@@ -1,10 +1,13 @@
 <div class="header" [ngClass]="{ 'mini' : minHeader }">
-  <div class="profile" [ngClass]="{ 'show': isHome, 'hide' : !isHome }">
+  <div class="profile" [@slideUpDown]="isHome" *ngIf="isHome">
     <div class="thumb_image">
       <img class="small img-circle" src="./../../assets/images/pic_null.png" />
     </div>
     <div class="vh-center name-text">
       <span> {{ name | capitalize }} </span>
     </div>
+  </div>
+  <div class="navmenu" [@slideUpDown]="!isHome" *ngIf="!isHome">
+    <i class="fa fa-arrow-left"></i>
   </div>
 </div>
