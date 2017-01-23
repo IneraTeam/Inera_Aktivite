@@ -8,6 +8,7 @@
     </div>
   </div>
   <div class="navmenu" [@slideUpDown]="!isHome" *ngIf="!isHome">
-    <i class="fa fa-arrow-left"></i>
+    <i class="fa fa-arrow-left" (click)='navigateBack()'></i>
+    <div class="lead"> {{pageTitle}} </div>
   </div>
 </div>

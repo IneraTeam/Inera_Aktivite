@@ -10,16 +10,19 @@ import { Router, NavigationEnd } from '@angular/router';
 export class HShellComponent implements OnInit {
   public name: string;
   public role: string;
-  public isHome: boolean;
-  public minHeader: boolean = true;
   constructor(private user: UserService, private router: Router) {
     this.user.basics.then(basics => {
-      this.isHome = true;
       this.name = basics.name;
       this.role = basics.role;
-    });
+    }).then(() => this.routeMenu());
   }
 
   ngOnInit() {
+  }
+
+  routeMenu() {
+    this.router.navigate(['home', {
+      outlets: { inside: `menu/${this.role}` }
+    }]);
   }
 }

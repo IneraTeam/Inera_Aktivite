@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Router, CanActivate } from '@angular/router';
-
+import { Subject } from 'rxjs/Subject';
+import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
@@ -10,7 +11,9 @@ import 'rxjs/add/operator/take';
 @Injectable()
 export class UserService {
   private userPath: string = '/users/';
-  constructor(private auth: AuthService, private router: Router) {
+  public currentPage: Subject<string>;
+  constructor(private auth: AuthService, private router: Router, private location: Location) {
+    this.currentPage = new Subject<string>();
   }
 
   get info(): firebase.Promise<any> {
@@ -48,6 +51,10 @@ export class UserService {
         this.router.navigateByUrl(`/home/(inside:menu/${basics.role})`);
       });
     }
+  }
+
+  navigateBack() {
+    this.location.back();
   }
 }
 

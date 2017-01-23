@@ -38,3 +38,8 @@
   -webkit-box-align: center;
   max-height: 50px;
 }
+
+.lead {
+  margin:0 auto;
+  font-weight: bold;
+}
