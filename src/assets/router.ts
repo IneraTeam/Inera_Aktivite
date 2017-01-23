@@ -19,7 +19,8 @@ const rootRoutes: Routes = [
             { path: '', component: HShellComponent, outlet: 'inside' },
             { path: 'menu', component: MenuComponent, outlet: 'inside' },
             { path: 'menu/:role', component: MenuComponent, outlet: 'inside' },
-            { path: 'client', component: CShellComponent, outlet: 'inside'}
+            { path: 'client', component: CShellComponent, outlet: 'inside'},
+            { path: 'client/:add', component: ClientdetailComponent, outlet: 'inside'}
         ]
     },
     { path: 'sign', component: SignComponent },

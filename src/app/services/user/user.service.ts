@@ -45,7 +45,7 @@ export class UserService {
 
   navigateURL(path?: string) {
     if (path) {
-      this.router.navigate([path]);
+      this.router.navigateByUrl(path);
     } else {
       this.basics.then(basics => {
         this.router.navigateByUrl(`/home/(inside:menu/${basics.role})`);
@@ -60,11 +60,11 @@ export class UserService {
 
 @Injectable()
 export class IsUserLoggedIn implements CanActivate {
-  constructor(private router: Router, private af: AuthService) { }
+  constructor(private router: Router, private af: AuthService, public user: UserService) { }
   canActivate(): Observable<boolean> {
     return this.af.auth.map(authState => {
       !authState ?
-        this.router.navigate(['/login']) : null;
+        this.router.navigate(['/login']) : this.user.navigateURL();
       return !!authState;
     }).take(1);
   }

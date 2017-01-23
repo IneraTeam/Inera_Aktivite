@@ -4,7 +4,7 @@ import { headerAnimation } from '../../assets/animations';
 
 @Component({
   template: `
-    <div [@slideUpDown]> "client" </div>
+    <app-client [@slideUpDown]> "client" </app-client>
   `,
   styles: [],
   animations: [headerAnimation('700ms')]

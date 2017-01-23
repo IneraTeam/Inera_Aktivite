@@ -23,18 +23,24 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.router.events.subscribe(routerEvent => {
-      if (routerEvent instanceof NavigationEnd) {
-        this.isHome = false;
-        setTimeout(() => {
-          if (this.isHomePage(routerEvent.url)) { this.isHome = true; }
-          this.minHeader = !this.minHeader;
-        }, 300);
+      if (this.isValidURL(routerEvent.url)) {
+        if (routerEvent instanceof NavigationEnd) {
+          this.isHome = false;
+          setTimeout(() => {
+            if (this.isHomePage(routerEvent.url)) { this.isHome = true; }
+            this.minHeader = !this.isHome ? true : !this.minHeader;
+          }, 300);
+        }
       }
     });
   }
 
   isHomePage(url$): boolean {
     return url$.indexOf('menu') > -1 ? true : false;
+  }
+
+  isValidURL(url$): boolean {
+    return url$.indexOf('inside') > -1 ? true : false;
   }
 
   navigateBack() {

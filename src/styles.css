@@ -45,8 +45,6 @@ body {
   border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
-.vh-center {}
-
 .small {
   width: 80px;
   height: 80px;
@@ -54,7 +52,6 @@ body {
 
 .list-group {
   display: -webkit-box !important;
-  margin: 0px 13px;
 }
 
 .outlet {

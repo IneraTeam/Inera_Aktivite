@@ -1,5 +1,7 @@
 import { UserService } from './../../services/user/user.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { headerAnimation } from '../../../assets/animations';
 
 @Component({
   selector: 'app-client',
@@ -8,9 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientComponent implements OnInit {
 
-  constructor() { }
+  constructor(private user: UserService) { }
 
   ngOnInit() {
   }
 
+  addClient() {
+    this.user.navigateURL('/home/(inside:client/add)');
+  }
 }

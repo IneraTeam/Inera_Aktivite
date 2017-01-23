@@ -14,15 +14,10 @@ export class HShellComponent implements OnInit {
     this.user.basics.then(basics => {
       this.name = basics.name;
       this.role = basics.role;
-    }).then(() => this.routeMenu());
+    }); // .then(() => this.user.navigateURL());
   }
 
   ngOnInit() {
   }
 
-  routeMenu() {
-    this.router.navigate(['home', {
-      outlets: { inside: `menu/${this.role}` }
-    }]);
-  }
 }

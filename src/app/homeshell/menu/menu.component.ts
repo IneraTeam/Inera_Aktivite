@@ -8,7 +8,7 @@ import { headerAnimation } from '../../../assets/animations';
   selector: 'app-home',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css'],
-  animations: [headerAnimation('relative', '800ms')]
+  animations: [headerAnimation('relative', '500ms')]
 
 })
 export class MenuComponent implements OnInit {

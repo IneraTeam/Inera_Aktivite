@@ -1,4 +1,10 @@
-@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+@media screen and (device-aspect-ratio: 2/3)  {
+  .list {
+    height: 360px;
+  }
+}
+
+@media screen and (device-aspect-ratio: 40/71) {
   /* iPhone 5 */
   .menu-item {
     height: 80px;
@@ -14,6 +20,9 @@
   .list-group {
     margin: 0;
   }
+  .list {
+    height: 450px;
+  }
 }
 
 @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
@@ -22,8 +31,11 @@
     height: 90px;
     width: 90px;
   }
-  .list-group {
+  .menu .list-group {
     margin: 0px 13px;
+  }
+  .list {
+    height: 540px;
   }
 }
 
@@ -33,8 +45,11 @@
     height: 100px;
     width: 100px;
   }
-  .list-group {
+  .menu .list-group {
     margin: 0px 17px;
+  }
+  .list {
+    height: 610px;
   }
 }
 
