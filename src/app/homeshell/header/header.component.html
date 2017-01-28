@@ -1,5 +1,5 @@
 <div class="header" [ngClass]="{ 'mini' : minHeader }">
-  <div class="profile" [@slideUpDown]="isHome" *ngIf="isHome">
+  <div class="profile" *ngIf="isHome">
     <div class="thumb_image">
       <img class="small img-circle" src="./../../assets/images/pic_null.png" />
     </div>
@@ -7,7 +7,7 @@
       <span> {{ name | capitalize }} </span>
     </div>
   </div>
-  <div class="navmenu" [@slideUpDown]="!isHome" *ngIf="!isHome">
+  <div class="navmenu" *ngIf="!isHome">
     <i class="fa fa-arrow-left" (click)='navigateBack()'></i>
     <div class="lead"> {{pageTitle}} </div>
   </div>

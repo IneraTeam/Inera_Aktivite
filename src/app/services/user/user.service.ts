@@ -1,23 +1,23 @@
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { Router, CanActivate } from '@angular/router';
+import { Router, CanActivate, NavigationEnd } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
+import 'rxjs/add/operator/filter';
 
 @Injectable()
 export class UserService {
-  private userPath: string = '/users/';
   public currentPage: Subject<string>;
   constructor(private auth: AuthService, private router: Router, private location: Location) {
     this.currentPage = new Subject<string>();
   }
 
   get info(): firebase.Promise<any> {
-    return this.auth.list(`${this.userPath}/${this.auth.id}`)
+    return this.auth.list(`/users/${this.auth.id}`)
       .$ref.once('value');
   }
 
@@ -28,6 +28,12 @@ export class UserService {
         role: snapshot.child('/role/').val(),
       }
     });
+  }
+
+  get routerEvent() {
+    return this.router.events
+      .filter(events => events instanceof NavigationEnd)
+      .map( event => event.url);
   }
 
   login(param) {
@@ -43,8 +49,9 @@ export class UserService {
       .catch((err) => console.log(err));
   }
 
-  navigateURL(path?: string) {
+  navigateURL(path?: string, title?: string) {
     if (path) {
+      this.currentPage.next(title);
       this.router.navigateByUrl(path);
     } else {
       this.basics.then(basics => {

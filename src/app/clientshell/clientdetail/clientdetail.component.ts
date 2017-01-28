@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user/user.service';
 
 @Component({
   selector: 'app-clientdetail',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientdetailComponent implements OnInit {
 
-  constructor() { }
+  constructor(private user: UserService) {
+  }
 
   ngOnInit() {
+    this.user.currentPage.next('Müşteri Ekle');
   }
 
 }

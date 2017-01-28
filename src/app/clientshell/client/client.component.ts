@@ -1,5 +1,5 @@
 import { UserService } from './../../services/user/user.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { headerAnimation } from '../../../assets/animations';
 
@@ -13,6 +13,7 @@ export class ClientComponent implements OnInit {
   constructor(private user: UserService) { }
 
   ngOnInit() {
+    this.user.currentPage.next('Müşteriler');
   }
 
   addClient() {

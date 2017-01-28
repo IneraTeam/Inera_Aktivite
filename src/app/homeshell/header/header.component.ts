@@ -1,46 +1,34 @@
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { UserService } from './../../services/user/user.service';
 import { Component, OnInit, Input } from '@angular/core';
-import { headerAnimation } from '../../../assets/animations';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
-  animations: [headerAnimation('absolute')]
 })
 export class HeaderComponent implements OnInit {
-  @Input() name: string;
-  @Input() role: string;
-  public isHome: boolean;
+  public isHome: boolean = true;
   public pageTitle: string;
-  public minHeader: boolean = true;
-  constructor(private router: Router, private user: UserService) {
+  public name: string;
+  public minHeader: boolean = false;
+  constructor(private user: UserService) {
     this.user.currentPage.subscribe(title => {
       this.pageTitle = title;
     });
-  }
-
-  ngOnInit() {
-    this.router.events.subscribe(routerEvent => {
-      if (this.isValidURL(routerEvent.url)) {
-        if (routerEvent instanceof NavigationEnd) {
-          this.isHome = false;
-          setTimeout(() => {
-            if (this.isHomePage(routerEvent.url)) { this.isHome = true; }
-            this.minHeader = !this.isHome ? true : !this.minHeader;
-          }, 300);
-        }
-      }
+    this.user.basics.then(info => {
+      this.name = info.name;
+    });
+    this.user.routerEvent.subscribe(url => {
+      this.isHome = !this.isMenu(url) ? false : true;
     });
   }
 
-  isHomePage(url$): boolean {
-    return url$.indexOf('menu') > -1 ? true : false;
+  private isMenu(url: string): boolean {
+    return url.indexOf('menu') > -1 ? true : false;
   }
 
-  isValidURL(url$): boolean {
-    return url$.indexOf('inside') > -1 ? true : false;
+  ngOnInit() {
   }
 
   navigateBack() {
