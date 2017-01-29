@@ -1,40 +1,40 @@
 <div class="menu">
     <ul class="list-group">
-        <li class=" menu-item" *ngIf="role === 'admin'" (click)="nav('client', 'Müşteriler')">
+        <li class=" menu-item" *ngIf="role === 'admin'" [routerLink]="['/home', {outlets: { 'inside':'clients'}}]" [queryParams]="{title: 'Müşteriler'}">
             <div class="menu-router">
                 <i class="fa fa-handshake-o menu-icon"></i>
                 <span>Müşteriler</span>
             </div>
         </li>
-        <li class=" menu-item" *ngIf="role==='admin'">
-            <a class="menu-router" routerLink="/project/" routerLinkActive="active">
+        <li class=" menu-item" *ngIf="role==='admin'" [routerLink]="['/home', {outlets: { 'inside':'projects' }}]" [queryParams]="{title: 'Projeler'}">
+            <div class="menu-router">
                 <i class="fa fa-folder-open-o menu-icon"></i>
                 <span>Projeler</span>
-            </a>
+            </div>
         </li>
-        <li class=" menu-item" *ngIf="role=== 'admin'">
-            <a class="menu-router" routerLink="/user/" routerLinkActive="active">
+        <li class=" menu-item" *ngIf="role=== 'admin'" [routerLink]="['/home', {outlets: { 'inside':'users' }}]" [queryParams]="{title: 'Kullanıcılar'}">
+            <div class="menu-router">
                 <i class="fa fa-user-o menu-icon"></i>
                 <span>Kullanıcılar</span>
-            </a>
+            </div>
         </li>
-        <li class=" menu-item">
-            <a class="menu-router" routerLink="/activity/" routerLinkActive="active">
+        <li class=" menu-item" *ngIf="role=== 'admin'" [routerLink]="['/home', {outlets: { 'inside':'activities' }}]" [queryParams]="{title: 'Aktiviteler'}">
+            <div class="menu-router">
                 <i class="fa fa-plus-square-o menu-icon"></i>
                 <span>Aktiviteler</span>
-            </a>
+            </div>
         </li>
-        <li class=" menu-item">
-            <a class="menu-router" routerLink="/expese/" routerLinkActive="active">
+        <li class=" menu-item" *ngIf="role=== 'admin'" [routerLink]="['/home', {outlets: { 'inside':'expenses' }}]" [queryParams]="{title: 'Masraflar'}">
+            <div class="menu-router">
                 <i class="fa fa-money menu-icon"></i>
                 <span>Masraflar</span>
-            </a>
+            </div>
         </li>
-        <li class=" menu-item">
-            <a class="menu-router" routerLink="/settings/" routerLinkActive="active">
+        <li class=" menu-item" *ngIf="role=== 'admin'" [routerLink]="['/home', {outlets: { 'inside':'settings' }}]" [queryParams]="{title: 'Ayarlar', target: 'settings'}">
+            <div class="menu-router">
                 <i class="fa fa-sliders menu-icon"></i>
                 <span>Ayarlar</span>
-            </a>
+            </div>
         </li>
     </ul>
 </div>

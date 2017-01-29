@@ -12,18 +12,19 @@ export class HeaderComponent implements OnInit {
   public pageTitle: string;
   public name: string;
   constructor(private user: UserService) {
-    this.user.currentPage.subscribe(title => {
-      this.pageTitle = title;
-    });
     this.user.basics.then(info => {
       this.name = info.name;
-    });
-    this.user.routerEvent.subscribe(url => {
-      this.isHome = url.indexOf('menu') > -1 ? true : false;
     });
   }
 
   ngOnInit() {
+    this.user.currentPage.subscribe(title => {
+      this.pageTitle = title;
+    });
+
+    this.user.routerEvent.subscribe(url => {
+      this.isHome = url.indexOf('menu') > -1 ? true : false;
+    });
   }
 
   navigateBack() {

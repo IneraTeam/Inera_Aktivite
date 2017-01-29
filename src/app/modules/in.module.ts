@@ -1,19 +1,24 @@
 import { NgModule } from '@angular/core';
 // routes
 // client components
-import { ClientComponent } from '../clientshell/client/client.component';
-import { ClientdetailComponent } from '../clientshell/clientdetail/clientdetail.component';
-import { CShellComponent } from '../clientshell/clientshell.component';
 // services
 import { UserService } from '../services/user/user.service';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from '../app.component';
+import { ShellComponent } from '../homeshell/shell/shell.component';
+import { SDetailComponent } from '../homeshell/sdetail/sdetail.component';
+import { SettingsComponent } from '../homeshell/settings/settings.component';
 
 @NgModule({
   declarations: [
-    ClientComponent,
-    CShellComponent,
-    ClientdetailComponent
+    ShellComponent,
+    SDetailComponent,
+    SettingsComponent
   ],
   imports: [
+    FormsModule,
+    BrowserModule
   ],
   providers: [UserService],
   bootstrap: []
