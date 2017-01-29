@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   template: `
-    <app-client> "client" </app-client>
+    <app-client></app-client>
   `,
   styles: [],
 //  animations: [headerAnimation('700ms')]
