@@ -8,7 +8,6 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/filter';
-import { FirebaseListObservable } from 'angularfire2';
 
 @Injectable()
 export class UserService {
@@ -31,14 +30,10 @@ export class UserService {
     });
   }
 
-  getRecords(path): FirebaseListObservable<any[]> {
-    return this.auth.list(`${path}`);
-  }
-
   get routerEvent() {
     return this.router.events
       .filter(events => events instanceof NavigationEnd)
-      .map(event => event.url);
+      .map( event => event.url);
   }
 
   login(param) {
@@ -54,10 +49,6 @@ export class UserService {
       .catch((err) => console.log(err));
   }
 
-  setPageTitle(param: string) {
-    this.currentPage.next(param);
-  }
-
   navigateURL(path?: string, title?: string) {
     if (path) {
       this.currentPage.next(title);
@@ -67,14 +58,6 @@ export class UserService {
         this.router.navigateByUrl(`/home/(inside:menu/${basics.role})`);
       });
     }
-  }
-
-  nav(path?: string) {
-    this.router.navigate(['/home', {
-      outlets: {
-        'inside' : `${path}`
-      }
-    }]);
   }
 
   navigateBack() {
@@ -87,8 +70,8 @@ export class IsUserLoggedIn implements CanActivate {
   constructor(private router: Router, private af: AuthService, public user: UserService) { }
   canActivate(): Observable<boolean> {
     return this.af.auth.map(authState => {
-      /*!authState ?
-        this.router.navigate(['/login']) : this.user.navigateURL();*/
+      !authState ?
+        this.router.navigate(['/login']) : this.user.navigateURL();
       return !!authState;
     }).take(1);
   }

@@ -11,20 +11,24 @@ export class HeaderComponent implements OnInit {
   public isHome: boolean = true;
   public pageTitle: string;
   public name: string;
+  public minHeader: boolean = false;
   constructor(private user: UserService) {
-    this.user.basics.then(info => {
-      this.name = info.name;
-    });
-  }
-
-  ngOnInit() {
     this.user.currentPage.subscribe(title => {
       this.pageTitle = title;
     });
-
-    this.user.routerEvent.subscribe(url => {
-      this.isHome = url.indexOf('menu') > -1 ? true : false;
+    this.user.basics.then(info => {
+      this.name = info.name;
     });
+    this.user.routerEvent.subscribe(url => {
+      this.isHome = !this.isMenu(url) ? false : true;
+    });
+  }
+
+  private isMenu(url: string): boolean {
+    return url.indexOf('menu') > -1 ? true : false;
+  }
+
+  ngOnInit() {
   }
 
   navigateBack() {
