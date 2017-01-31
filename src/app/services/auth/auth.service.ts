@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseAuthState, AngularFireAuth } from 'angularfire2';
 
+import 'rxjs/add/operator/toPromise';
+
 @Injectable()
 export class AuthService {
   private authState: FirebaseAuthState;
@@ -16,6 +18,10 @@ export class AuthService {
 
   get id() {
     return this.authenticated ? this.authState.uid : '';
+  }
+
+  get mappedId() {
+    return this.auth.map( auth => auth.uid);
   }
 
   list(path: string) {

@@ -1,6 +1,7 @@
+import { AngularFire } from 'angularfire2';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
-import { Router, CanActivate, NavigationEnd } from '@angular/router';
+import { Router, CanActivate, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
@@ -11,9 +12,13 @@ import 'rxjs/add/operator/filter';
 
 @Injectable()
 export class UserService {
-  public currentPage: Subject<string>;
-  constructor(private auth: AuthService, private router: Router, private location: Location) {
-    this.currentPage = new Subject<string>();
+  constructor(
+    private auth: AuthService, private router: Router,
+    private location: Location, private act: ActivatedRoute,
+    ) {
+      this.auth.mappedId.subscribe( uid => {
+        this.basics.then( basics => this.setLocalInfo(basics.name, basics.role));
+      });
   }
 
   get info(): firebase.Promise<any> {
@@ -25,7 +30,6 @@ export class UserService {
     return this.info.then((snapshot) => {
       const name = snapshot.child('/name/').val();
       const role = snapshot.child('/role/').val();
-      this.setLocalInfo(name, role);
       return { name: name, role: role };
     });
   }
@@ -46,6 +50,10 @@ export class UserService {
 
   get role() {
     return JSON.parse(this.local)['role'];
+  }
+
+  get pagetitle() {
+    return this.act.queryParams.map( param => param['title']);
   }
 
   setLocalInfo(name: string, role: string) {

@@ -16,6 +16,6 @@ export class ClientComponent implements OnInit {
   }
 
   addClient() {
-    this.user.nav('client/add');
+    this.user.navInChild('client/add');
   }
 }

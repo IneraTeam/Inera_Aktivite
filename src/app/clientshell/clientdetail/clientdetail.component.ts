@@ -12,7 +12,6 @@ export class ClientdetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user.currentPage.next('Müşteri Ekle');
   }
 
 }

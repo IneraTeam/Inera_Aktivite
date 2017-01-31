@@ -8,11 +8,15 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
-  public isHome: boolean = true;
+  public isHome: boolean;
   public pagetitle: string;
   public name: string;
   constructor(private user: UserService) {
     this.name = this.user.name;
+    this.user.pagetitle.subscribe( title => {
+      this.isHome = !title ? true : false;
+      this.pagetitle = title || '';
+    });
   }
   ngOnInit() {
   }
