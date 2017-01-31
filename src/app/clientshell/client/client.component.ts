@@ -13,10 +13,9 @@ export class ClientComponent implements OnInit {
   constructor(private user: UserService) { }
 
   ngOnInit() {
-    this.user.currentPage.next('Müşteriler');
   }
 
   addClient() {
-    this.user.navigateURL('/home/(inside:client/add)');
+    this.user.nav('client/add');
   }
 }

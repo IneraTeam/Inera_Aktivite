@@ -23,40 +23,61 @@ export class UserService {
 
   get basics() {
     return this.info.then((snapshot) => {
-      return {
-        name: snapshot.child('/name/').val(),
-        role: snapshot.child('/role/').val(),
-      }
+      const name = snapshot.child('/name/').val();
+      const role = snapshot.child('/role/').val();
+      this.setLocalInfo(name, role);
+      return { name: name, role: role };
     });
   }
 
   get routerEvent() {
     return this.router.events
       .filter(events => events instanceof NavigationEnd)
-      .map( event => event.url);
+      .map(event => event.url);
+  }
+
+  get local() {
+    return localStorage.getItem('userInfo');
+  }
+
+  get name() {
+    return JSON.parse(this.local)['name'];
+  }
+
+  get role() {
+    return JSON.parse(this.local)['role'];
+  }
+
+  setLocalInfo(name: string, role: string) {
+    localStorage.setItem('userInfo',
+      JSON.stringify({ name: name, role: role }));
   }
 
   login(param) {
     return this.auth.login(param)
-      .then(() => this.navigateURL())
+      .then(() => this.navInChild())
       .catch((err) => console.log(err));
-
   }
 
   createUser(param) {
     this.auth.addUser(param)
-      .then(() => this.navigateURL())
+      .then(() => this.navInChild())
       .catch((err) => console.log(err));
   }
 
-  navigateURL(path?: string, title?: string) {
-    if (path) {
-      this.currentPage.next(title);
-      this.router.navigateByUrl(path);
+  navParentRoute(path: string) {
+    this.router.navigate([path]);
+  }
+
+  navInChild(inPath?: string) {
+    if (this.role) {
+      this.router.navigate(['/home', {
+        outlets: {
+          'inside': !inPath ? 'menu' : inPath
+        }
+      }]);
     } else {
-      this.basics.then(basics => {
-        this.router.navigateByUrl(`/home/(inside:menu/${basics.role})`);
-      });
+      console.log(' localStorage ile ilgili sıkınt');
     }
   }
 
@@ -70,8 +91,7 @@ export class IsUserLoggedIn implements CanActivate {
   constructor(private router: Router, private af: AuthService, public user: UserService) { }
   canActivate(): Observable<boolean> {
     return this.af.auth.map(authState => {
-      !authState ?
-        this.router.navigate(['/login']) : this.user.navigateURL();
+      // last login date ? localStorage
       return !!authState;
     }).take(1);
   }

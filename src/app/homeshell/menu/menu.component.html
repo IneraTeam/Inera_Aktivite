@@ -1,6 +1,6 @@
 <div class="menu">
     <ul class="list-group">
-        <li class=" menu-item" *ngIf="role === 'admin'" (click)="nav('client', 'Müşteriler')">
+        <li class=" menu-item" *ngIf="role === 'admin'" [routerLink]="['/home', {outlets: { 'inside':'client'}}]">
             <div class="menu-router">
                 <i class="fa fa-handshake-o menu-icon"></i>
                 <span>Müşteriler</span>

@@ -13,15 +13,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class MenuComponent implements OnInit {
   public role;
-  constructor(private actv: ActivatedRoute, private user: UserService) {
-    this.actv.params.subscribe(param => {
-      this.role = param['role'];
-    });
+  constructor(private user: UserService) {
+    this.role = user.role;
   }
   ngOnInit() {
-  }
-
-  nav(target, title) {
-    this.user.navigateURL(`/home/(inside:${target})`, title);
   }
 }

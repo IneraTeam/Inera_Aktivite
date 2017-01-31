@@ -20,6 +20,6 @@ export class LoginComponent implements OnInit {
   }
 
   redirectSignIn() {
-    this.user.navigateURL('sign');
+    this.user.navParentRoute('/sign/');
   }
 }

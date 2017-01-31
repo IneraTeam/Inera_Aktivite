@@ -1,4 +1,4 @@
-<div class="header" [ngClass]="{ 'mini' : minHeader }">
+<div class="header" [ngClass]="{ 'mini' : !isHome }">
   <div class="profile" *ngIf="isHome">
     <div class="thumb_image">
       <img class="small img-circle" src="./../../assets/images/pic_null.png" />
