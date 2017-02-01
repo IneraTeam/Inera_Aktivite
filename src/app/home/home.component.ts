@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     this.aut.auth$.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
       this.aut.af.database.list(`/users/${state.uid}`).$ref.once('value',snapshot=>{
-          this.post = (snapshot.val().data.name)
+          this.post = (snapshot.val().name)
          // console.log(this.post); subscribe yapmamak için ref once ı kullandık. Aynı mantık fakat subscribe gibi ortamı devamlı dinlemiyor
         });// this.post a atamamızın sebebi ekrana yazdırabilmek.
    

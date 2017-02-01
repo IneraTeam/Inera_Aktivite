@@ -27,7 +27,7 @@ return this.authenticated ? this.authState.uid: '';// '' nedemek?varsa id dÃ¶ndÃ
     return this.auth$.createUser({
       email: input.email,
       password: input.password
-    }).then(()=> this.list(`/users/`).push('')
+    }).then(()=> this.list(`/users/${this.id}`).push('')
         .ref.parent.set({
           name:input.names,
           role:"admin"
@@ -38,11 +38,10 @@ return this.authenticated ? this.authState.uid: '';// '' nedemek?varsa id dÃ¶ndÃ
     return this.af.database.list(string);
   }
 
-
-
-
- // dilek(param) {
-  //  console.log(param);
-   // return param;
- // }
+  login(input){
+    return this.af.auth.login({
+      email: input.email,
+      password: input.password
+    });
+  }
 }
