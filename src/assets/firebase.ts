@@ -10,6 +10,6 @@ export const firebaseConfig = {
   const authConfig = {
       provider: AuthProviders.Password,
       method: AuthMethods.Password
-    } 
+    };
 
   export const firebaseInit = AngularFireModule.initializeApp(firebaseConfig, authConfig);

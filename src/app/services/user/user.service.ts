@@ -15,10 +15,7 @@ export class UserService {
   constructor(
     private auth: AuthService, private router: Router,
     private location: Location, private act: ActivatedRoute,
-    ) {
-      this.auth.mappedId.subscribe( uid => {
-        this.basics.then( basics => this.setLocalInfo(basics.name, basics.role));
-      });
+  ) {
   }
 
   get info(): firebase.Promise<any> {
@@ -53,23 +50,34 @@ export class UserService {
   }
 
   get pagetitle() {
-    return this.act.queryParams.map( param => param['title']);
+    return this.act.queryParams.map(param => param['title']);
   }
 
-  setLocalInfo(name: string, role: string) {
+  setLocalInfo(name: string, role: string): Promise<boolean> {
     localStorage.setItem('userInfo',
       JSON.stringify({ name: name, role: role }));
+    return Promise.resolve();
   }
 
   login(param) {
     return this.auth.login(param)
-      .then(() => this.navInChild())
+      .then(() => {
+        this.basics.then(basics => {
+          this.setLocalInfo(basics.name, basics.role)
+            .then(() => this.navInChild());
+        });
+      })
       .catch((err) => console.log(err));
   }
 
   createUser(param) {
-    this.auth.addUser(param)
-      .then(() => this.navInChild())
+    return this.auth.addUser(param)
+      .then(() => {
+        this.basics.then(basics => {
+          this.setLocalInfo(basics.name, basics.role)
+            .then(() => this.navInChild());
+        });
+      })
       .catch((err) => console.log(err));
   }
 

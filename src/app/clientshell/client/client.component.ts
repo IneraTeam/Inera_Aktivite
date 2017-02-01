@@ -9,9 +9,7 @@ import { headerAnimation } from '../../../assets/animations';
   styleUrls: ['./client.component.css']
 })
 export class ClientComponent implements OnInit {
-
   constructor(private user: UserService) { }
-
   ngOnInit() {
   }
 
