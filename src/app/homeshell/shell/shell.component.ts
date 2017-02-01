@@ -1,4 +1,8 @@
+import { async } from '@angular/core/testing';
+import { AuthService } from './../../services/auth/auth.service';
+import { UserService } from './../../services/user/user.service';
 import { Component } from '@angular/core';
+import { FirebaseListObservable, AuthMethods } from 'angularfire2';
 
 @Component({
   selector: 'app-shell',
@@ -10,7 +14,10 @@ import { Component } from '@angular/core';
   </div>
   <button class="btn btn-success add"> Ekle </button>
   <div class="list">
-    <app-list class="list-group"></app-list>
+  <div class="list-group">
+  <app-item class="list-group-item" 
+    *ngFor = " let item of itemList | async" [item] = "item" [target] = "target"></app-item>
+  </div>
   </div>
 </div>
   `,
@@ -23,4 +30,13 @@ import { Component } from '@angular/core';
   `]
 })
 export class ShellComponent {
+  public target: string;
+  public itemList: FirebaseListObservable<any[]>;
+  constructor(public user: UserService) {
+    user.pagetarget.subscribe(target => {
+      this.target = target;
+      this.itemList = this.user.db(target);
+    });
+  }
+
 }

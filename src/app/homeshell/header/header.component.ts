@@ -12,7 +12,6 @@ export class HeaderComponent implements OnInit {
   public isHome: boolean;
   public pagetitle: string;
   public name: string;
-  public image: string;
   constructor(private user: UserService) {
     this.name = this.user.name;
     this.user.pagetitle.subscribe( title => {

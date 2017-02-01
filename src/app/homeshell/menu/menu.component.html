@@ -1,16 +1,16 @@
 <div class="menu">
     <ul class="list-group">
-        <li class=" menu-item" *ngIf="role === 'admin'" [routerLink]="['/home', {outlets: { 'inside':'shell'}}]" [queryParams] = "{ title: 'Müşteriler'}">
+        <li class=" menu-item" *ngIf="role === 'admin'" [routerLink]="['/home', {outlets: { 'inside':'shell'}}]" [queryParams] = "{ title: 'Müşteriler', path: 'clients'}">
             <div class="menu-router">
                 <i class="fa fa-handshake-o menu-icon"></i>
                 <span>Müşteriler</span>
             </div>
         </li>
-        <li class=" menu-item" *ngIf="role==='admin'">
-            <a class="menu-router" routerLink="/project/" routerLinkActive="active">
+        <li class=" menu-item" *ngIf="role === 'admin'" [routerLink]="['/home', {outlets: { 'inside':'shell'}}]" [queryParams] = "{ title: 'Projeler', path: 'projects'}">
+            <div class="menu-router">
                 <i class="fa fa-folder-open-o menu-icon"></i>
                 <span>Projeler</span>
-            </a>
+            </div>
         </li>
         <li class=" menu-item" *ngIf="role=== 'admin'">
             <a class="menu-router" routerLink="/user/" routerLinkActive="active">

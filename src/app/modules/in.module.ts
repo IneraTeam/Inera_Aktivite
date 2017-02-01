@@ -1,17 +1,16 @@
-import { ListComponent } from './../homeshell/shell/list/list.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { ThumbClient } from './../homeshell/shell/thumb_items/thumb/thumb.component';
 import { ShellComponent } from './../homeshell/shell/shell.component';
 import { NgModule } from '@angular/core';
-// routes
-// client components
-// services
 import { UserService } from '../services/user/user.service';
 
 @NgModule({
   declarations: [
     ShellComponent,
-    ListComponent
+    ThumbClient,
   ],
   imports: [
+    BrowserModule
   ],
   providers: [UserService],
   bootstrap: []

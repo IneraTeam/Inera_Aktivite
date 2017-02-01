@@ -53,6 +53,14 @@ export class UserService {
     return this.act.queryParams.map(param => param['title']);
   }
 
+  get pagetarget() {
+    return this.act.queryParams.map(param => param['path']);
+  }
+
+  db(path) {
+    return this.auth.list(path);
+  }
+
   setLocalInfo(name: string, role: string): Promise<boolean> {
     localStorage.setItem('userInfo',
       JSON.stringify({ name: name, role: role }));
@@ -90,7 +98,7 @@ export class UserService {
       this.router.navigate(['/home', {
         outlets: {
           'inside': !inPath ? 'menu' : inPath
-        }
+        }, preserveQueryParams: false
       }]);
     } else {
       console.log(' localStorage ile ilgili sıkınt');
