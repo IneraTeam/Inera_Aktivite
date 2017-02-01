@@ -1,6 +1,6 @@
 <div class="menu">
     <ul class="list-group">
-        <li class=" menu-item" *ngIf="role === 'admin'" [routerLink]="['/home', {outlets: { 'inside':'client'}}]" [queryParams] = "{ title: 'Müşteriler'}">
+        <li class=" menu-item" *ngIf="role === 'admin'" [routerLink]="['/home', {outlets: { 'inside':'shell'}}]" [queryParams] = "{ title: 'Müşteriler'}">
             <div class="menu-router">
                 <i class="fa fa-handshake-o menu-icon"></i>
                 <span>Müşteriler</span>

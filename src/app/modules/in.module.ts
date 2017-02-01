@@ -1,17 +1,15 @@
+import { ListComponent } from './../homeshell/shell/list/list.component';
+import { ShellComponent } from './../homeshell/shell/shell.component';
 import { NgModule } from '@angular/core';
 // routes
 // client components
-import { ClientComponent } from '../clientshell/client/client.component';
-import { ClientdetailComponent } from '../clientshell/clientdetail/clientdetail.component';
-import { CShellComponent } from '../clientshell/clientshell.component';
 // services
 import { UserService } from '../services/user/user.service';
 
 @NgModule({
   declarations: [
-    ClientComponent,
-    CShellComponent,
-    ClientdetailComponent
+    ShellComponent,
+    ListComponent
   ],
   imports: [
   ],
