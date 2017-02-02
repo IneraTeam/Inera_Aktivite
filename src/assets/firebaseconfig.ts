@@ -1,7 +1,7 @@
 export const firebaseConfig = {
-    apiKey: 'AIzaSyAd7cUm4qlXG1Q2xDV-rTiHSgluz6Ol0hA',
-    authDomain: 'inera1-e7f24.firebaseapp.com',
-    databaseURL: 'https://inera1-e7f24.firebaseio.com',
-    storageBucket: 'inera1-e7f24.appspot.com',
-    messagingSenderId: '510388167767'
-  }
+    apiKey: "AIzaSyBG3DAGttkB3F_S6OVtgfzLHbzN465XWrY",
+    authDomain: "dilek-cf98e.firebaseapp.com",
+    databaseURL: "https://dilek-cf98e.firebaseio.com",
+    storageBucket: "dilek-cf98e.appspot.com",
+    messagingSenderId: "168059555875"
+  };

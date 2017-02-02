@@ -15,4 +15,13 @@ export class UserService {
      return this._auth.addUser(input);
    }
 
+
+/*readFromDatabase(input): void {
+  readFromDatabase(input);
+  }*/
+
+  /* userdeneme(input) {
+     return this._auth.authdeneme(input);
+   }*/
+
 }
