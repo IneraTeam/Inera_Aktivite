@@ -1,0 +1,22 @@
+<div class="client">
+  <div class="input-group mb-2 mr-sm-2 mb-sm-0 search">
+    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Ara">
+    <i class="input-group-addon fa fa-search"></i>
+  </div>
+  <button class="btn btn-success add"> Ekle </button>
+  <div class="list-block">
+    <ul class="list-group">
+      <li class="swipeout list-group-item" *ngFor=" let item of itemList | async">
+        <div class="swipeout-content item-content">
+          <app-item [item]="item" [target]="target"></app-item>
+          <div class="item-media"> {{ item.name }}</div>
+        </div>
+        <div class="swipeout-actions-right">
+          <a class="">
+            <i class="fa fa-pencil-square-o"></i>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

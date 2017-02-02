@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "framework7": "github:JasonKleban/Framework7.d.ts/framework7.d.ts#e31bad1d988d0471e2edcd17d8fa1fbf6d3a62b8/"
+  }
+}

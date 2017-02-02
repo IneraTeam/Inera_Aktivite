@@ -22,9 +22,12 @@
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
         "./assets/style/mediaqueries.css",
-        "./assets/style/form.css"
+        "./assets/style/form.css",
+        "../node_modules/framework7/dist/css/framework7.material.min.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/framework7/dist/js/framework7.min.js"
+      ],
       "environments": {
         "source": "environments/environment.ts",
         "dev": "environments/environment.ts",

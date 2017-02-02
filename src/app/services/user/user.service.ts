@@ -19,7 +19,7 @@ export class UserService {
   }
 
   get info(): firebase.Promise<any> {
-    return this.auth.list(`/users/${this.auth.id}`)
+    return this.db(`/users/${this.auth.id}`)
       .$ref.once('value');
   }
 

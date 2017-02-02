@@ -88,3 +88,23 @@ a:focus,
 a:hover {
   color: black !important;
 }
+
+.list-group{
+    float:left;
+    width: 100%;
+}
+
+.list-group-item {
+  padding: .50rem 0rem;
+}
+
+.list-group-item a{
+  background: #FF9500 !important;
+  padding: 0 18px !important;
+}
+
+.list-block .swipeout-actions-right {
+    right: -10px !important;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+}
