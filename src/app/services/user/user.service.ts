@@ -64,7 +64,7 @@ export class UserService {
   setLocalInfo(name: string, role: string): Promise<boolean> {
     localStorage.setItem('userInfo',
       JSON.stringify({ name: name, role: role }));
-    return Promise.resolve();
+    return new Promise((resolve, reject) => resolve(true));
   }
 
   login(param) {
