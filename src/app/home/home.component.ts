@@ -1,8 +1,7 @@
-import { FirebaseListObservable, AngularFire, FirebaseAuth, FirebaseAuthState } from 'angularfire2';
-import { Router } from '@angular/router';
-import { UserService } from './../services/user/user.service';
+import { AuthService } from './../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-
+import {  FirebaseAuthState } from 'angularfire2';
+import { UserService } from './../services/user/user.service';
 
 @Component({
   selector: 'app-home',
@@ -10,30 +9,41 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-items: FirebaseListObservable<any[]>;
+ public name: string;
+  public role: string;
+  constructor(private user: UserService) { 
+   /* this.aut.auth$.subscribe((state: FirebaseAuthState) => {
+      this.authState = state;
+      this.aut.af.database.list(`/users/${state.uid}`).$ref.once('value',snapshot=>{
+         // console.log(this.post); subscribe yapmamak için ref once ı kullandık. Aynı mantık fakat subscribe gibi ortamı devamlı dinlemiyor
+          this.post = (snapshot.val().name)
+        });// this.post a atamamızın sebebi ekrana yazdırabilmek.
+   
+      })*/
+      
+    this.user.info
+    .then((basics) => {console.log(basics.val())
+    this.name = basics.val().name;
+    this.role = basics.val().role;  
+    }
+  )
 
-  constructor(private user:  UserService , private router: Router , af_home: AngularFire ,public _auth:FirebaseAuth) {
 
 
-this._auth.subscribe((state: FirebaseAuthState) => {
-this.items = af_home.database.list(`/users/${state.uid}`);
-
-})
 
 
-   }
 
+    /* this.post
+      .subscribe(snapshots=> {
+        snapshots.forEach(snapshot => {
+          console.log(snapshot.key)
+          console.log(snapshot.val().data.name)
+      
+        });
+    })*/ //subscribe ile kullanımı
+      
+  }
   ngOnInit() {
   }
 
-
-/*readFromDatabase(input): void {
-this.user.readFromDatabase(this.items);
-  }*/
-
-
-
-
 }
-
-

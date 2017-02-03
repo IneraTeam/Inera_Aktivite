@@ -1,27 +1,31 @@
 import { AuthService } from './../auth/auth.service';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class UserService {
   private userID: string;
   private userPath: string = '/users/';
 
-  constructor(private _auth: AuthService) {
+
+  constructor(private _auth: AuthService , public router: Router) {
  // this.userID = this._auth.;
+   }
+
+   db(input: string){
+return this._auth.list(input);
+   }
+
+   get info(){
+     return this.db(`/users/${this._auth.id}`).$ref.once('value');
    }
 
 
    createUser(input) {
      return this._auth.addUser(input);
    }
-
-
-/*readFromDatabase(input): void {
-  readFromDatabase(input);
-  }*/
-
-  /* userdeneme(input) {
-     return this._auth.authdeneme(input);
-   }*/
-
+   logIn(value){
+     return this._auth.login(value)
+     .then(() => this.router.navigate(['/home']))// doğru giriş yaparsa home a yönlendiriyor.
+   }
 }

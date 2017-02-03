@@ -1,5 +1,12 @@
-<h1> Kayıtlar </h1>
-<h2> <div> *ngFor="let item of items | async"  {{item.email}} 
-<label> kayıtlı kullanıcı: </label> {{item.email}} </div> </h2>
 
+<h1> {{name}}</h1>
+<h1> {{role}}</h1>
 
+<ul class="list-group"  > {{role}}
+    <li class="list-group-item active"  *ngIf= "role == 'user'" > Müşteriler</li>
+    <li class="list-group-item">Projeler</li>
+    <li class="list-group-item">Kullanıcılar</li>
+    <li class="list-group-item">Aktiviteler</li>
+    <li class="list-group-item">Masraflar</li>
+    <li class="list-group-item">Ayarlar</li>
+</ul>

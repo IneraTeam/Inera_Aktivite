@@ -11,7 +11,7 @@ import 'rxjs/add/operator/take';
 export class IsauthService implements CanActivate {
   constructor(private router: Router, private af: AuthService) { }
   canActivate(): Observable<boolean> {
-    return this.af.auth.take(1)
+    return this.af.auth$.take(1)
       .map(authState => !!authState)
       .do(authenticated => {
         !authenticated ?
