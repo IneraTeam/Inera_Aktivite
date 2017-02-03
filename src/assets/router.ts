@@ -1,4 +1,3 @@
-import { AppComponent } from './../app/app.component';
 import { SignComponent } from './../app/sign/sign.component';
 import { IsauthService } from './../app/services/isauth/isauth.service';
 import { HomeComponent } from './../app/home/home.component';
@@ -8,7 +7,6 @@ import { Routes } from '@angular/router';
 export const theRouter: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'sign', component: SignComponent },
-    { path: 'app', component: AppComponent },
     { path: 'home', component: HomeComponent, canActivate: [IsauthService] },
     { path: '**', redirectTo: 'login' }
 ]

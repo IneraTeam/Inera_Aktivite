@@ -11,7 +11,6 @@ import { Component, OnInit } from '@angular/core';
 export class SignComponent implements OnInit {
   public error:boolean = false;
   public error_message:string;
-  public dilek: string = 'Dilek';
 
   constructor(private user: UserService, private router: Router) { }
 
@@ -30,20 +29,4 @@ export class SignComponent implements OnInit {
         this.error_message = err.message;
       });
   }
-
-
-
-  /*deneme(input): void {
-    this.user.userdeneme(input)
-      .then(() => this.router.navigate(['/home']))
-      .catch((err) => {
-
-        this.error = true;//girilen mail adresi, vt da var ise, ekranda uyarı verilir.
-        setTimeout(() => {this.error=false;
-        },2500);
-        console.log('Error@SignComponent.ts | signIn', err);
-        this.error_message = err.message;
-      });
-}*/
-
 }
