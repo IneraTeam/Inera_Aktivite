@@ -99,8 +99,16 @@ a:hover {
 }
 
 .list-group-item a{
-  background: #FF9500 !important;
-  padding: 0 18px !important;
+  background: transparent !important;
+  box-shadow: inset 1px 0px 10px 0px rgba(0,0,0,0.3);
+}
+
+.list-group-item .edit i{
+  color: #FF9500 !important;
+}
+
+.list-group-item .delete i{
+  color: #a50707 !important;
 }
 
 .list-block .swipeout-actions-right {

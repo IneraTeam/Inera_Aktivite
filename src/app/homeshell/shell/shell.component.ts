@@ -33,4 +33,12 @@ export class ShellComponent implements AfterContentInit {
   ngAfterContentInit() {
 
   }
+
+  edit() {
+    alert('edit');
+  }
+
+  delete() {
+    alert('delete');
+  }
 }

@@ -12,8 +12,11 @@
           <div class="item-media"> {{ item.name }}</div>
         </div>
         <div class="swipeout-actions-right">
-          <a class="">
+          <a class="edit" (click)="edit()">
             <i class="fa fa-pencil-square-o"></i>
+          </a>
+          <a class="delete" (click)="delete()">
+            <i class="fa fa-trash-o"></i>
           </a>
         </div>
       </li>
