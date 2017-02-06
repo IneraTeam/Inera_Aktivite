@@ -8,7 +8,7 @@ import { UserService } from '../services/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public error: boolean = false;
+  public error = false;
   constructor(private user: UserService) {
   }
 

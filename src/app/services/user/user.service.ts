@@ -1,3 +1,4 @@
+import { QueryParams } from './../../models/interfaces/queryparams';
 import { AngularFire } from 'angularfire2';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
@@ -93,13 +94,18 @@ export class UserService {
     this.router.navigate([path]);
   }
 
-  navInChild(inPath?: string) {
+  navInChild(inPath?: string, queryparams?: QueryParams) {
     if (this.role) {
       this.router.navigate(['/home', {
         outlets: {
           'inside': !inPath ? 'menu' : inPath
         }, preserveQueryParams: false
-      }]);
+      }], {
+        queryParams: {
+          'title' : queryparams.title,
+          'path'  : queryparams.path
+        }
+      });
     } else {
       console.log(' localStorage ile ilgili sıkınt');
     }

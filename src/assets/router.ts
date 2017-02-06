@@ -1,3 +1,4 @@
+import { DetailComponent } from './../app/homeshell/shell/detail_items/detail.component';
 import { ShellComponent } from './../app/homeshell/shell/shell.component';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -16,7 +17,8 @@ const rootRoutes: Routes = [
         children: [
             { path: '', component: HShellComponent, outlet: 'inside' },
             { path: 'menu', component: MenuComponent, outlet: 'inside' },
-            { path: 'shell', component: ShellComponent, outlet: 'inside'}
+            { path: 'shell', component: ShellComponent, outlet: 'inside'},
+            { path: 'shell/:id', component: DetailComponent, outlet: 'inside'}
         ]
     },
     { path: 'sign', component: SignComponent },
