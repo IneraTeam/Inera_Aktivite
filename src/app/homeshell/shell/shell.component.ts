@@ -1,3 +1,4 @@
+import { IClient } from './../../models/interfaces';
 import { async } from '@angular/core/testing';
 import { AuthService } from './../../services/auth/auth.service';
 import { UserService } from './../../services/user/user.service';
@@ -37,8 +38,8 @@ export class ShellComponent implements AfterContentInit {
     alert('edit');
   }
 
-  delete() {
-    alert('delete');
+  delete(item: IClient) {
+    this.user.db(`/clients/${item.$key}`).remove();
   }
 
   addtitle(): string {

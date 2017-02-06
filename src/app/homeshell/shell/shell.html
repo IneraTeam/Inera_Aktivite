@@ -9,13 +9,12 @@
       <li class="swipeout list-group-item" *ngFor=" let item of itemList | async">
         <div class="swipeout-content item-content">
           <app-item [item]="item" [target]="target"></app-item>
-          <div class="item-media"> {{ item.name }}</div>
         </div>
         <div class="swipeout-actions-right">
           <a class="edit" (click)="edit()">
             <i class="fa fa-pencil-square-o"></i>
           </a>
-          <a class="delete" (click)="delete()">
+          <a class="delete" (click)="delete(item)">
             <i class="fa fa-trash-o"></i>
           </a>
         </div>
