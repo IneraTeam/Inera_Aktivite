@@ -58,8 +58,8 @@ export class UserService {
     return this.act.queryParams.map(param => param['path']);
   }
 
-  db(path) {
-    return this.auth.list(path);
+  db(path, preserveshapshot?: boolean) {
+    return this.auth.list(path, preserveshapshot);
   }
 
   setLocalInfo(name: string, role: string): Promise<boolean> {
@@ -67,6 +67,11 @@ export class UserService {
       JSON.stringify({ name: name, role: role }));
     return new Promise((resolve, reject) => resolve(true));
   }
+
+  /* refSnapShot(param: string) {
+    return this.auth.af.database.object(`${param}`, {preserveSnapshot: false})
+    .$ref.once('value');
+  } */
 
   login(param) {
     return this.auth.login(param)
@@ -96,16 +101,24 @@ export class UserService {
 
   navInChild(inPath?: string, queryparams?: QueryParams) {
     if (this.role) {
-      this.router.navigate(['/home', {
-        outlets: {
-          'inside': !inPath ? 'menu' : inPath
-        }, preserveQueryParams: false
-      }], {
-        queryParams: {
-          'title' : queryparams.title,
-          'path'  : queryparams.path
-        }
-      });
+      if (queryparams) {
+        this.router.navigate(['/home', {
+          outlets: {
+            'inside': !inPath ? 'menu' : inPath
+          }, preserveQueryParams: false
+        }], {
+            queryParams: {
+              'title': queryparams.title || '',
+              'path': queryparams.path || ''
+            }
+          });
+      } else {
+        this.router.navigate(['/home', {
+          outlets: {
+            'inside': !inPath ? 'menu' : inPath
+          }, preserveQueryParams: false
+        }]);
+      }
     } else {
       console.log(' localStorage ile ilgili sıkınt');
     }

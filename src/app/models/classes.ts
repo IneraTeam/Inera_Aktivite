@@ -1,16 +1,18 @@
 import { IClient } from './interfaces';
+import * as firebase from 'firebase';
 
 export class Client implements IClient {
+    $key?: string;
     abbrv: string;
     name: string;
     address?: string;
     p_name: string;
-    p_tel: string;
+    p_tel: number;
     p_mail: string;
     createdAt = firebase.database['ServerValue']['TIMESTAMP'];
     constructor(
         name: string, abbrv: string,
-        p_name: string, p_tel: string, p_mail: string,
+        p_name: string, p_tel: number, p_mail: string,
         address?: string
     ) {
         this.abbrv = abbrv;

@@ -2,7 +2,7 @@
     <div class="thumb_image pull-left">
         <img class="big img-circle" src="./../../assets/images/pic_null.png" />
     </div>
-    <form #form="ngForm" (ngSubmit)="qwe(form.value)">
+    <form #form="ngForm" (ngSubmit)="checkIfValuesExist(form.value)">
         <div class="row">
             <div class="col-12">
                 <div class="input-group mb-2 mr-sm-2 mb-sm-0">
@@ -15,7 +15,7 @@
         <div class="form-group row">
             <div class="col-12">
                 <input class="form-control" type="text" placeholder="Müşteri Adı" id="name" name="name" #name="ngModel" ngModel>
-                <textarea class="form-control" id="address" placeholder="Adres" rows="3" name="address" #address="ngModel" ngModel></textarea>
+                <textarea class="form-control" id="address" placeholder="Adres" rows="2" name="address" #address="ngModel" ngModel></textarea>
                 <input class="form-control" type="text" placeholder="Muhatap Ad/Soyad" id="payer" name="pname" #pname="ngModel" ngModel>
                 <input class="form-control" type="number" placeholder="Muhatap Tel" id="phone" name="pphone" #pphone="ngModel" ngModel>
                 <input class="form-control" type="email" placeholder="Muhatap E-Mail" id="mail" name="pmail" #pmal = "ngModel" ngModel>

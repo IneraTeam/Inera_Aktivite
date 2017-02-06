@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AuthService {
   private authState: FirebaseAuthState;
-  constructor(public auth: AngularFireAuth, private af: AngularFire) {
+  constructor(public auth: AngularFireAuth, public af: AngularFire) {
     auth.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
     });
@@ -24,8 +24,8 @@ export class AuthService {
     return this.auth.map( auth => auth.uid);
   }
 
-  list(path: string) {
-    return this.af.database.list(`${path}`);
+  list(path: string, preserveSnapShot?: boolean) {
+    return this.af.database.list(`${path}`, { preserveSnapshot: preserveSnapShot});
   }
 
   login(input): firebase.Promise<FirebaseAuthState> {

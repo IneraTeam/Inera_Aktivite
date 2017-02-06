@@ -1,0 +1,14 @@
+.item-media {
+  padding: 0 .75rem;
+}
+
+.item-media .info > div {
+  margin-left: -15px;
+  font-size: 13px;
+}
+
+.small {
+  /* saçma */
+  width: 70px;
+  height: 70px;
+}
