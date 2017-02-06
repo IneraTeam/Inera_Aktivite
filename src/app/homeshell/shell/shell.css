@@ -17,10 +17,6 @@ div.list {
   float: left;
 }
 
-.client {
-  padding: 5px;
-}
-
 .swipeout-actions-right i {
     background: inherit;
     color: white;

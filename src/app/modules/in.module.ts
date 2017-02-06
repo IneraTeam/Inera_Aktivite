@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { DetailComponent } from './../homeshell/shell/detail_items/detail.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ThumbClient } from './../homeshell/shell/thumb_items/thumb/thumb.component';
@@ -12,7 +13,8 @@ import { UserService } from '../services/user/user.service';
     DetailComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [UserService],
   bootstrap: []

@@ -89,6 +89,10 @@ a:hover {
   color: black !important;
 }
 
+.padding {
+  padding: 5px;
+}
+
 .list-group{
     float:left;
     width: 100%;

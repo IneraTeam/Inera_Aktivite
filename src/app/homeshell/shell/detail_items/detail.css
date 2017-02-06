@@ -1,0 +1,12 @@
+.thumb-image {
+  float: left;
+}
+
+.input-group,
+.top {
+  width: 110%;
+}
+
+#date {
+  text-align: center;
+}
