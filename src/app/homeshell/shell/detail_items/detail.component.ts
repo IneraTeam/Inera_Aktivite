@@ -1,3 +1,4 @@
+import { UserService } from './../../../services/user/user.service';
 import { Component, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +8,11 @@ import { Component, Input } from '@angular/core';
 })
 
 export class DetailComponent {
-    constructor() {
-        console.log('called');
+    constructor(private user: UserService) {
+
+    }
+
+    qwe(val) {
+        console.log(val);
     }
 }

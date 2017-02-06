@@ -1,4 +1,4 @@
-import { QueryParams } from './../../models/interfaces/queryparams';
+import { QueryParams } from './../../models/interfaces';
 import { AngularFire } from 'angularfire2';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
