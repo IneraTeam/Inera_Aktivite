@@ -3,7 +3,7 @@
     <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Ara">
     <i class="input-group-addon fa fa-search"></i>
   </div>
-  <button class="btn btn-success add"> Ekle </button>
+  <button class="btn btn-success add" (click)="addItem()"> Ekle </button>
   <div class="list-block">
     <ul class="list-group">
       <li class="swipeout list-group-item" *ngFor=" let item of itemList | async">

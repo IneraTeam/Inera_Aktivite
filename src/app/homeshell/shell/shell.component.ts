@@ -5,11 +5,6 @@ import { Component, AfterContentInit } from '@angular/core';
 import { FirebaseListObservable, AuthMethods } from 'angularfire2';
 
 
-interface Framework7 {
-  router: boolean;
-  material: boolean;
-}
-
 @Component({
   selector: 'app-shell',
   templateUrl: './shell.html',
@@ -34,11 +29,27 @@ export class ShellComponent implements AfterContentInit {
 
   }
 
+  addItem() {
+    this.user.navInChild('shell/new', { 'title': this.addtitle(), 'path': this.target });
+  }
+
   edit() {
     alert('edit');
   }
 
   delete() {
     alert('delete');
+  }
+
+  addtitle(): string {
+    let add: string;
+    this.user.pagetitle.subscribe(title => add = title.slice(0, -3) + ' Ekle');
+    return add;
+  }
+
+  edittitle(): string {
+    let edit: string;
+    this.user.pagetitle.subscribe(title => edit = title.slice(0, -3) + ' Düzenle');
+    return edit;
   }
 }
