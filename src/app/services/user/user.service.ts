@@ -33,7 +33,7 @@ export class UserService {
   }
 
   get routerEvent() {
-    return this.router.events
+    return this.router.events.take(1)
       .filter(events => events instanceof NavigationEnd)
       .map(event => event.url);
   }
@@ -50,12 +50,16 @@ export class UserService {
     return JSON.parse(this.local)['role'];
   }
 
+  get queryparams() {
+    return this.act.queryParams.take(1);
+  }
+
   get pagetitle() {
-    return this.act.queryParams.map(param => param['title']);
+    return this.queryparams.map(param => param['title']);
   }
 
   get pagetarget() {
-    return this.act.queryParams.map(param => param['path']);
+    return this.queryparams.map(param => param['path']);
   }
 
   db(path, preserveshapshot?: boolean) {

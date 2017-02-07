@@ -1,26 +1,29 @@
 <div class="padding">
-    <div class="thumb_image pull-left">
-        <img class="big img-circle" src="./../../assets/images/pic_null.png" />
-    </div>
-    <form #form="ngForm" (ngSubmit)="checkIfValuesExist(form.value)">
-        <div class="row">
-            <div class="col-12">
-                <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                    <input class="form-control" type="text" value="08/02/2017" id="date" readonly>
-                    <div class="input-group-addon fa fa-calendar-check-o"></div>
+    <div *ngIf="path === 'clients' ">
+        <div class="thumb_image pull-left">
+            <img class="big img-circle" src="./../../assets/images/pic_null.png" />
+        </div>
+        <form #form="ngForm" (ngSubmit)="checkIfValuesExist(form.value)">
+            <div class="row">
+                <div class="col-12">
+                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                        <input class="form-control" type="text" [ngModel] = "dummy.createdAt | date: 'dd/MM/yy' " id="date" readonly name="createdAt" #createdAt="ngModel">
+                        <div class="input-group-addon fa fa-calendar-check-o"></div>
+                    </div>
+                    <input class="top form-control" type="text" placeholder="Kısaltma" id="abbrv" [ngModel] = 'dummy.abbrv | uppercase' name="abbrv" #abbrv="ngModel" ngModel>
                 </div>
-                <input class="top form-control" type="text" placeholder="Kısaltma" id="abbrv" name="abbrv" #abbrv="ngModel" ngModel>
             </div>
-        </div>
-        <div class="form-group row">
-            <div class="col-12">
-                <input class="form-control" type="text" placeholder="Müşteri Adı" id="name" name="name" #name="ngModel" ngModel>
-                <textarea class="form-control" id="address" placeholder="Adres" rows="2" name="address" #address="ngModel" ngModel></textarea>
-                <input class="form-control" type="text" placeholder="Muhatap Ad/Soyad" id="payer" name="pname" #pname="ngModel" ngModel>
-                <input class="form-control" type="number" placeholder="Muhatap Tel" id="phone" name="pphone" #pphone="ngModel" ngModel>
-                <input class="form-control" type="email" placeholder="Muhatap E-Mail" id="mail" name="pmail" #pmal = "ngModel" ngModel>
-                <button class="btn btn-primary form-control" type="submit">Kaydet</button>
+            <div class="form-group row">
+                <div class="col-12">
+                    <input class="form-control" type="text" placeholder="Müşteri Adı" id="name" name="name" [(ngModel)] = 'dummy.name' #name="ngModel" ngModel>
+                    <textarea class="form-control" id="address" placeholder="Adres" rows="2" name="address" [(ngModel)] = 'dummy.address' #address="ngModel" ngModel></textarea>
+                    <input class="form-control" type="text" placeholder="Muhatap Ad/Soyad" id="payer" [(ngModel)] = 'dummy.p_name' name="pname" #pname="ngModel" ngModel>
+                    <input class="form-control" type="number" placeholder="Muhatap Tel" id="phone" [(ngModel)] = 'dummy.p_tel' name="pphone" #pphone="ngModel" ngModel>
+                    <input class="form-control" type="email" placeholder="Muhatap E-Mail" id="mail" [(ngModel)] = 'dummy.p_mail' name="pmail" #pmal="ngModel" ngModel>
+                    <button class="btn btn-primary form-control" type="submit" *ngIf="!$key">Kaydet</button>
+                    <button class="btn btn-success form-control" type="submit" *ngIf="$key">Güncelle</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
 </div>

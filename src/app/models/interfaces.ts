@@ -1,3 +1,4 @@
+import { IClient } from './interfaces';
 export interface IClient {
   $key?: string;
   abbrv: string;

@@ -93,30 +93,30 @@ a:hover {
   padding: 5px;
 }
 
-.list-group{
-    float:left;
-    width: 100%;
+.list-group {
+  float: left;
+  width: 100%;
 }
 
 .list-group-item {
   padding: .50rem 0rem;
 }
 
-.list-group-item a{
+.list-group-item a {
   background: transparent !important;
-  box-shadow: inset 1px 0px 10px 0px rgba(0,0,0,0.3);
+  border: 1px solid #efefef;
 }
 
-.list-group-item .edit i{
+.list-group-item .edit i {
   color: #FF9500 !important;
 }
 
-.list-group-item .delete i{
+.list-group-item .delete i {
   color: #a50707 !important;
 }
 
 .list-block .swipeout-actions-right {
-    right: -10px !important;
-    -webkit-transform: translateX(100%);
-    transform: translateX(100%);
+  right: -10px !important;
+  -webkit-transform: translateX(100%);
+  transform: translateX(100%);
 }

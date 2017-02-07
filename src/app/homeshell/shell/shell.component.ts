@@ -31,11 +31,13 @@ export class ShellComponent implements AfterContentInit {
   }
 
   addItem() {
-    this.user.navInChild('shell/new', { 'title': this.addtitle(), 'path': this.target });
+    this.user.navInChild('shell/new',
+      { 'title': this.addtitle(), 'path': this.target });
   }
 
-  edit() {
-    alert('edit');
+  edit(item) {
+    this.user.navInChild(`shell/${item.$key}`,
+      { 'title': this.edittitle(), 'path': this.target });
   }
 
   delete(item: IClient) {
