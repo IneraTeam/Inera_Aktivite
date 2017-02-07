@@ -34,24 +34,50 @@
     </form>
   </div>
   <div *ngIf="path === 'users' ">
-    <form>
+    <form #formuser="ngForm" (ngSubmit)="qwe(formuser.value)">
       <div class="form-group row">
         <div class="col-12">
-          <div class="input-group pull-left margin-bot" style="width: 50%; margin-right: 10px;">
+          <div class="input-group pull-left mb-3 half" style="margin-right: 10px;">
             <div class="input-group-addon fa fa-user-o"></div>
-            <input type="text" class="form-control" id="username" placeholder="K.ADI" readonly>
+            <input type="text" class="form-control" id="username" placeholder="K.ADI" #username="ngModel" ngModel name="username">
           </div>
-          <div class="input-group pull-right margin-bot" style="width: 40%; margin-left: 10px;">
-            <input type="text" class="form-control" id="phone_abbrv" placeholder="####" readonly>
+          <div class="input-group pull-right mb-3" style="width: 40%; margin-left: 10px;">
+            <input type="text" class="form-control" id="phone_abbrv" placeholder="####" name="pabbrv" ngModel #pabbrv="ngModel">
             <div class="input-group-addon fa fa-phone"></div>
+          </div>
+          <div class="input-group mb-3 mr-sm-2 mb-sm-0 group">
+            <div class="input-group-addon fa fa-address-card-o"></div>
+            <input type="text" class="form-control" id="name" placeholder="İsim Soyisim" name="fullname" #fullname="ngModel" ngModel>
           </div>
           <div class="input-group mb-3 mr-sm-2 mb-sm-0 group">
             <div class="input-group-addon fa fa-envelope-o"></div>
-            <input type="email" class="form-control" id="mail" placeholder="Mail">
+            <input type="email" class="form-control" id="mail" placeholder="Mail" name="usermail" #usermail="ngModel" ngModel>
           </div>
           <div class="input-group mb-3 mr-sm-2 mb-sm-0 group">
             <div class="input-group-addon fa fa-phone"></div>
-            <input type="tel" class="form-control" id="phone" placeholder="Telefon">
+            <input type="tel" class="form-control" id="phone" placeholder="Telefon" name="userphone" #userphone="ngModel" ngModel>
+          </div>
+          <div class="input-group mb-3 mr-sm-2 mb-sm-0 pull-left group">
+            <div class="input-group-addon fa fa-users"></div>
+            <select class="custom-select group" id="team">
+                <option selected>Ekip</option>
+                <option value="0">BO</option>
+                <option value="1">BPC</option>
+                <option value="2">BW</option>
+            </select>
+          </div>
+          <div class="input-group mb-3 mr-sm-2 mb-sm-0 pull-left group">
+            <div class="input-group-addon fa fa-commenting-o"></div>
+            <select class="custom-select group" id="manager">
+                <option selected>Yönetici</option>
+                <option value="0">Emre Aksoy</option>
+                <option value="1">Utku Sancaktar</option>
+                <option value="2">Can Şengüler</option>
+            </select>
+          </div>
+          <div class="mb-3 mr-sm-2 mb-sm-0">
+            <button type="button" class="btn btn-secondary mb-3">Projeler</button>
+            <button type="submit" class="btn btn-primary">Kaydet</button>
           </div>
         </div>
       </div>

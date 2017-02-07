@@ -11,10 +11,24 @@
   text-align: center;
 }
 
-.margin-bot {
-  margin-bottom: 15px;
+.group {
+  width: 100%;
 }
 
-.group {
+.custom-select {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  padding: .375rem 3.2rem .375rem .75rem;
+}
+
+.half {
+  width: 50%;
+}
+
+.input-group-addon {
+    width: 40px;
+}
+
+.btn {
   width: 100%;
 }

@@ -64,6 +64,10 @@ export class DetailComponent implements OnDestroy {
         });
     }
 
+    qwe(values: any) {
+        console.log(values);
+    }
+
     update(key: string, changes: any) {
         // değişiklik var mı yok mu kontrol edilecek
         // değişiklik var ise güncelle tıklanabilir olcak. (outline -> normal buton)
