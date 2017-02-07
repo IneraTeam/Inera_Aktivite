@@ -12,11 +12,11 @@
                 <span>Projeler</span>
             </div>
         </li>
-        <li class=" menu-item" *ngIf="role=== 'admin'">
-            <a class="menu-router" routerLink="/user/" routerLinkActive="active">
+        <li class=" menu-item" *ngIf="role === 'admin'" [routerLink]="['/home', {outlets: { 'inside':'shell'}}]" [queryParams] = "{ title: 'Kullanıcılar', path: 'users'}">
+            <div class="menu-router">
                 <i class="fa fa-user-o menu-icon"></i>
                 <span>Kullanıcılar</span>
-            </a>
+            </div>
         </li>
         <li class=" menu-item">
             <a class="menu-router" routerLink="/activity/" routerLinkActive="active">

@@ -1,11 +1,11 @@
 <div class="padding">
   <div class="input-group mb-2 mr-sm-2 mb-sm-0 search">
-    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Ara">
+    <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Ara" [readonly]="!isDataArrived">
     <i class="input-group-addon fa fa-search"></i>
   </div>
   <button class="btn btn-success add" (click)="addItem()"> Ekle </button>
   <div class="list-block">
-    <ul class="list-group">
+    <ul class="list-group" *ngIf="isDataArrived">
       <li class="swipeout list-group-item" *ngFor=" let item of itemList | async">
         <div class="swipeout-content item-content">
           <app-item [item]="item" [target]="target"></app-item>

@@ -10,3 +10,11 @@
 #date {
   text-align: center;
 }
+
+.margin-bot {
+  margin-bottom: 15px;
+}
+
+.group {
+  width: 100%;
+}

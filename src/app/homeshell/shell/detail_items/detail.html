@@ -1,29 +1,60 @@
 <div class="padding">
-    <div *ngIf="path === 'clients' ">
-        <div class="thumb_image pull-left">
-            <img class="big img-circle" src="./../../assets/images/pic_null.png" />
-        </div>
-        <form #form="ngForm" (ngSubmit)="checkIfValuesExist(form.value)">
-            <div class="row">
-                <div class="col-12">
-                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-                        <input class="form-control" type="text" [ngModel] = "dummy.createdAt | date: 'dd/MM/yy' " id="date" readonly name="createdAt" #createdAt="ngModel">
-                        <div class="input-group-addon fa fa-calendar-check-o"></div>
-                    </div>
-                    <input class="top form-control" type="text" placeholder="Kısaltma" id="abbrv" [ngModel] = 'dummy.abbrv | uppercase' name="abbrv" #abbrv="ngModel" ngModel>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-12">
-                    <input class="form-control" type="text" placeholder="Müşteri Adı" id="name" name="name" [(ngModel)] = 'dummy.name' #name="ngModel" ngModel>
-                    <textarea class="form-control" id="address" placeholder="Adres" rows="2" name="address" [(ngModel)] = 'dummy.address' #address="ngModel" ngModel></textarea>
-                    <input class="form-control" type="text" placeholder="Muhatap Ad/Soyad" id="payer" [(ngModel)] = 'dummy.p_name' name="pname" #pname="ngModel" ngModel>
-                    <input class="form-control" type="number" placeholder="Muhatap Tel" id="phone" [(ngModel)] = 'dummy.p_tel' name="pphone" #pphone="ngModel" ngModel>
-                    <input class="form-control" type="email" placeholder="Muhatap E-Mail" id="mail" [(ngModel)] = 'dummy.p_mail' name="pmail" #pmal="ngModel" ngModel>
-                    <button class="btn btn-primary form-control" type="submit" *ngIf="!$key">Kaydet</button>
-                    <button class="btn btn-success form-control" type="submit" *ngIf="$key">Güncelle</button>
-                </div>
-            </div>
-        </form>
+  <div *ngIf="path === 'clients' ">
+    <div class="thumb_image pull-left">
+      <img class="big img-circle" src="./../../assets/images/pic_null.png" />
     </div>
+    <form #form="ngForm" (ngSubmit)="checkIfValuesExist(form.value)">
+      <div class="row">
+        <div class="col-12">
+          <div class="input-group mb-3 mr-sm-2 mb-sm-0">
+            <input class="form-control" type="text" [ngModel]="dummy.createdAt | date: 'dd/MM/yy' " id="date" readonly name="createdAt"
+              #createdAt="ngModel">
+              <div class="input-group-addon fa fa-calendar-check-o"></div>
+          </div>
+          <input class="top form-control" type="text" placeholder="Kısaltma" id="abbrv" [ngModel]='dummy.abbrv | uppercase' name="abbrv"
+            #abbrv="ngModel" ngModel>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-12">
+          <input class="form-control" type="text" placeholder="Müşteri Adı" id="name" name="name" [(ngModel)]='dummy.name' #name="ngModel"
+            ngModel>
+            <textarea class="form-control" id="address" placeholder="Adres" rows="2" name="address" [(ngModel)]='dummy.address' #address="ngModel"
+              ngModel></textarea>
+              <input class="form-control" type="text" placeholder="Muhatap Ad/Soyad" id="payer" [(ngModel)]='dummy.p_name' name="pname"
+                #pname="ngModel" ngModel>
+                <input class="form-control" type="number" placeholder="Muhatap Tel" id="phone" [(ngModel)]='dummy.p_tel' name="pphone" #pphone="ngModel"
+                  ngModel>
+                  <input class="form-control" type="email" placeholder="Muhatap E-Mail" id="mail" [(ngModel)]='dummy.p_mail' name="pmail" #pmal="ngModel"
+                    ngModel>
+                    <button class="btn btn-primary form-control" type="submit" *ngIf="!$key">Kaydet</button>
+                    <button class="btn btn-success form-control" *ngIf="$key" type="button" (click)="update(dummy.$key, form.value)">Güncelle</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="path === 'users' ">
+    <form>
+      <div class="form-group row">
+        <div class="col-12">
+          <div class="input-group pull-left margin-bot" style="width: 50%; margin-right: 10px;">
+            <div class="input-group-addon fa fa-user-o"></div>
+            <input type="text" class="form-control" id="username" placeholder="K.ADI" readonly>
+          </div>
+          <div class="input-group pull-right margin-bot" style="width: 40%; margin-left: 10px;">
+            <input type="text" class="form-control" id="phone_abbrv" placeholder="####" readonly>
+            <div class="input-group-addon fa fa-phone"></div>
+          </div>
+          <div class="input-group mb-3 mr-sm-2 mb-sm-0 group">
+            <div class="input-group-addon fa fa-envelope-o"></div>
+            <input type="email" class="form-control" id="mail" placeholder="Mail">
+          </div>
+          <div class="input-group mb-3 mr-sm-2 mb-sm-0 group">
+            <div class="input-group-addon fa fa-phone"></div>
+            <input type="tel" class="form-control" id="phone" placeholder="Telefon">
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>

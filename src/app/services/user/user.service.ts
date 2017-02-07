@@ -51,7 +51,7 @@ export class UserService {
   }
 
   get queryparams() {
-    return this.act.queryParams.take(1);
+    return this.act.queryParams;
   }
 
   get pagetitle() {

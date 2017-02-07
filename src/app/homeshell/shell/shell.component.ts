@@ -15,6 +15,7 @@ export class ShellComponent implements AfterContentInit {
   public target: string;
   public w;
   public itemList: FirebaseListObservable<any[]>;
+  public isDataArrived = false;
   constructor(public user: UserService) {
     this.w = new Framework7({
       router: true,
@@ -23,6 +24,7 @@ export class ShellComponent implements AfterContentInit {
     user.pagetarget.subscribe(target => {
       this.target = target;
       this.itemList = this.user.db(target);
+      this.checkIfDataExist(this.itemList);
     });
   }
 
@@ -44,15 +46,19 @@ export class ShellComponent implements AfterContentInit {
     this.user.db(`/clients/${item.$key}`).remove();
   }
 
+  checkIfDataExist(fbList: FirebaseListObservable<any[]>) {
+    fbList.$ref.once('value', snap => this.isDataArrived = snap.exists());
+  }
+
   addtitle(): string {
     let add: string;
-    this.user.pagetitle.subscribe(title => add = title.slice(0, -3) + ' Ekle');
+    this.user.pagetitle.subscribe(title => title ? add = title.slice(0, -3) + ' Ekle' : null);
     return add;
   }
 
   edittitle(): string {
     let edit: string;
-    this.user.pagetitle.subscribe(title => edit = title.slice(0, -3) + ' Düzenle');
+    this.user.pagetitle.subscribe(title => title ? edit = title.slice(0, -3) + ' Düzenle' : null);
     return edit;
   }
 }

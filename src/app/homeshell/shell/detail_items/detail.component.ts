@@ -1,4 +1,4 @@
-import { dummyClient } from './../../../models/dummies';
+import { dummyClient, dummyProject, dummyUser } from './../../../models/dummies';
 import { FirebaseListObservable } from 'angularfire2';
 import { Client } from './../../../models/classes';
 import { UserService } from './../../../services/user/user.service';
@@ -22,7 +22,9 @@ export class DetailComponent implements OnDestroy {
                 if (target === 'clients') {
                     this.dummy = dummyClient;
                 } else if (target === 'projects') {
-                    // dummyProjects
+                    this.dummy = dummyProject;
+                } else if (target === 'users') {
+                    this.dummy = dummyUser;
                 }
                 if (this.$key) {
                     this.user.db(`/${target}/${this.$key}`)
@@ -33,6 +35,7 @@ export class DetailComponent implements OnDestroy {
                             for (const key in v) {
                                 this.dummy[key] = v[key];
                             }
+                            this.dummy.$key = this.$key;
                             this.dummy.createdAt = new Date(this.dummy.createdAt);
                         });
                 } else {
@@ -43,7 +46,7 @@ export class DetailComponent implements OnDestroy {
     }
 
     ngOnDestroy() {
-       console.log(this.dummy);
+        this.clearDummyContent();
     }
 
     checkIfValuesExist(val) {
@@ -61,8 +64,23 @@ export class DetailComponent implements OnDestroy {
         });
     }
 
+    update(key: string, changes: any) {
+        // değişiklik var mı yok mu kontrol edilecek
+        // değişiklik var ise güncelle tıklanabilir olcak. (outline -> normal buton)
+        // custom directive
+        this.user.db(this.path).update(key, changes);
+    }
+
     getItemID(urlpath: string) {
         const urlparse = urlpath.slice(urlpath.indexOf('shell/') + 6, urlpath.indexOf('?') - 1);
         return urlparse === 'new' ? false : urlparse;
+    }
+
+    clearDummyContent() {
+        // tslint:disable-next-line:whitespace
+        // tslint:disable-next-line:forin
+        for (const key in this.dummy) {
+            this.dummy[key] = null;
+        }
     }
 }
