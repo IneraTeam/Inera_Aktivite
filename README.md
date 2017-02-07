@@ -1,5 +1,5 @@
-# 0.0.3.0
+# 0.0.3.4
 
-# Componentler ayrı, bir sonraki branchda shell komponent üzerinden list'i sabit,
-# listin içini ayrı komponentler şeklinde yapmaya çalışıyor olcam.
-# Tabi detayı için de ayrı komponentler yapıyor olcam. bu zaten gereklilik
+ - User kısmından emin değilim.
+ - Müşteri tamam.
+ - Interfaceler ve dummyler harika.
