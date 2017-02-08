@@ -15,9 +15,9 @@ export class DetailComponent implements OnDestroy {
     public path: string;
     public dummy;
     constructor(private user: UserService) {
-        this.user.routerEvent.subscribe(url => {
+        this.user.routerEvent.take(1).subscribe(url => {
             this.$key = this.getItemID(url) || null;
-            this.user.pagetarget.subscribe(target => {
+            this.user.pagetarget.take(1).subscribe(target => {
                 this.path = target;
                 if (target === 'clients') {
                     this.dummy = dummyClient;
@@ -26,7 +26,7 @@ export class DetailComponent implements OnDestroy {
                 } else if (target === 'users') {
                     this.dummy = dummyUser;
                 }
-                if (this.$key) {
+                if (this.$key !== undefined) {
                     this.user.db(`/${target}/${this.$key}`)
                         .$ref.once('value', snap => {
                             const v = snap.val();
@@ -51,7 +51,7 @@ export class DetailComponent implements OnDestroy {
 
     checkIfValuesExist(val) {
         // var mı yok mu eklenecek
-        this.user.pagetarget.subscribe(target => {
+        this.user.pagetarget.take(1).subscribe(target => {
             this.user.db(target, false).push(
                 new Client(
                     val.name, val.abbrv, val.pname,
