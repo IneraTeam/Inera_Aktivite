@@ -1,5 +1,3 @@
-# 0.0.3.4
+# 0.0.3.5
 
- - User kısmından emin değilim.
- - Müşteri tamam.
- - Interfaceler ve dummyler harika.
+ - sıkıntı: Kullanıcı oluşturulduğunda auth token onunla değişiyor.
