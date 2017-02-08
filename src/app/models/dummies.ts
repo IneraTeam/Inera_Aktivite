@@ -15,10 +15,14 @@ export const dummyUser: IUser = {
   fullname: null,
   team: null,
   phone: null,
-  phone_abbrv: null,
   username: null,
   manager: null,
-  createdAt: null
+  createdAt: null,
+  editedAt: null,
+  birthAt: null,
+  enterAt: null,
+  actv: null,
+  mail: null
 };
 
 

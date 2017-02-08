@@ -25,10 +25,14 @@ export interface IUser {
   fullname: string;
   team: string;
   phone: number;
-  phone_abbrv: number;
   username: string;
-  manager?: IUser;
-  createdAt: number;
+  mail: string;
+  manager?: string;
+  createdAt;
+  editedAt?: number;
+  enterAt?: number;
+  birthAt?: number;
+  actv: boolean;
 }
 
 export interface QueryParams {

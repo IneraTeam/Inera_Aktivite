@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseAuthState, AngularFireAuth } from 'angularfire2';
 
 import 'rxjs/add/operator/toPromise';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class AuthService {
@@ -21,11 +22,11 @@ export class AuthService {
   }
 
   get mappedId() {
-    return this.auth.map( auth => auth.uid);
+    return this.auth.map(auth => auth.uid);
   }
 
   list(path: string, preserveSnapShot?: boolean) {
-    return this.af.database.list(`${path}`, { preserveSnapshot: preserveSnapShot});
+    return this.af.database.list(`${path}`, { preserveSnapshot: preserveSnapShot });
   }
 
   login(input): firebase.Promise<FirebaseAuthState> {
@@ -33,16 +34,14 @@ export class AuthService {
   }
 
   addUser(input): firebase.Promise<FirebaseAuthState> {
-    return this.auth.createUser({
-      email: input.email,
-      password: input.password
-    }).then(() => {
-      return this.list(`/users/${this.id}`).push('')
+    return firebase.auth().createUserWithEmailAndPassword(
+      input.email, input.password
+    ).then((signed) => {
+      return this.list(`/users/${signed.uid}`).push('')
         .ref.parent.set({
           name: input.names,
-          role: 'admin'
+          role: input.role
         });
     });
   }
-
 }

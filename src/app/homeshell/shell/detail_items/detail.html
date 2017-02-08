@@ -34,16 +34,12 @@
     </form>
   </div>
   <div *ngIf="path === 'users' ">
-    <form #formuser="ngForm" (ngSubmit)="qwe(formuser.value)">
+    <form #formuser="ngForm" (ngSubmit)="checkIfValuesExist(formuser.value)">
       <div class="form-group row">
         <div class="col-12">
-          <div class="input-group pull-left mb-3 half" style="margin-right: 10px;">
+          <div class="input-group pull-left mb-3 group">
             <div class="input-group-addon fa fa-user-o"></div>
-            <input type="text" class="form-control" id="username" placeholder="K.ADI" #username="ngModel" ngModel name="username">
-          </div>
-          <div class="input-group pull-right mb-3" style="width: 40%; margin-left: 10px;">
-            <input type="text" class="form-control" id="phone_abbrv" placeholder="####" name="pabbrv" ngModel #pabbrv="ngModel">
-            <div class="input-group-addon fa fa-phone"></div>
+            <input type="text" class="form-control" id="username" placeholder="Kullanıcı Adı" #username="ngModel" ngModel name="username">
           </div>
           <div class="input-group mb-3 mr-sm-2 mb-sm-0 group">
             <div class="input-group-addon fa fa-address-card-o"></div>
@@ -59,20 +55,20 @@
           </div>
           <div class="input-group mb-3 mr-sm-2 mb-sm-0 pull-left group">
             <div class="input-group-addon fa fa-users"></div>
-            <select class="custom-select group" id="team">
-                <option selected>Ekip</option>
-                <option value="0">BO</option>
-                <option value="1">BPC</option>
-                <option value="2">BW</option>
+            <select class="custom-select group" id="team" (change)='onSelect($event.target.value)' #team="ngModel" ngModel name="team">
+                <option value="null" selected>Ekip</option>
+                <option value="BO">BO</option>
+                <option value="BPC">BPC</option>
+                <option value="BW">BW</option>
             </select>
           </div>
           <div class="input-group mb-3 mr-sm-2 mb-sm-0 pull-left group">
             <div class="input-group-addon fa fa-commenting-o"></div>
-            <select class="custom-select group" id="manager">
+            <select class="custom-select group" id="manager" (change)='onSelect($event.target.value)' #manager="ngModel" ngModel name="manager">
                 <option selected>Yönetici</option>
-                <option value="0">Emre Aksoy</option>
-                <option value="1">Utku Sancaktar</option>
-                <option value="2">Can Şengüler</option>
+                <option value="Emre Aksoy">Emre Aksoy</option>
+                <option value="Utku Sancaktar">Utku Sancaktar</option>
+                <option value="Can Şengüler">Can Sengüler</option>
             </select>
           </div>
           <div class="mb-3 mr-sm-2 mb-sm-0">

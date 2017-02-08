@@ -1,4 +1,4 @@
-import { IClient } from './interfaces';
+import { IClient, IUser } from './interfaces';
 import * as firebase from 'firebase';
 
 export class Client implements IClient {
@@ -21,5 +21,32 @@ export class Client implements IClient {
         this.p_tel = p_tel;
         this.p_name = p_name;
         this.address = address;
+    }
+}
+
+export class User implements IUser {
+    $key?: string;
+    username: string;
+    fullname: string;
+    team: string;
+    phone: number;
+    manager: string;
+    editedAt?: number;
+    enterAt?: number;
+    birthAt?: number;
+    mail: string;
+    actv: boolean;
+    createdAt = firebase.database['ServerValue']['TIMESTAMP'];
+    constructor(
+        username: string, fullname: string,
+        mail: string, phone: number,
+        team: string, manager ?: string
+    ) {
+        this.username = username;
+        this.fullname = fullname;
+        this.mail = mail;
+        this.phone = phone;
+        this.team = team;
+        this.manager = manager;
     }
 }

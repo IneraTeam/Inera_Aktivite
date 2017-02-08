@@ -1,6 +1,6 @@
 import { dummyClient, dummyProject, dummyUser } from './../../../models/dummies';
 import { FirebaseListObservable } from 'angularfire2';
-import { Client } from './../../../models/classes';
+import { Client, User } from './../../../models/classes';
 import { UserService } from './../../../services/user/user.service';
 import { Component, OnDestroy } from '@angular/core';
 
@@ -51,21 +51,33 @@ export class DetailComponent implements OnDestroy {
 
     checkIfValuesExist(val) {
         // var mı yok mu eklenecek
+        let adder: any;
         this.user.pagetarget.take(1).subscribe(target => {
-            this.user.db(target, false).push(
-                new Client(
+            if (target === 'clients') {
+                adder = new Client(
                     val.name, val.abbrv, val.pname,
                     val.pphone, val.pmail, val.address
-                )
-            ).then(() => {
-                // pop-up eklenecek
-                console.log('Müşteri eklendi');
-            });
+                );
+                this.user.db(target, false).push(adder)
+                    .then(() => {
+                        // pop-up eklenecek
+                        console.log('Müşteri eklendi');
+                    });
+            } else if (target === 'users') {
+                // var mı yok mu eklenecek
+                this.user.createUser({
+                    email: val.usermail,
+                    password: '123456',
+                    names: val.fullname,
+                    role: 'admin'
+                });
+                // kullanıcıya şifre sıfırlama maili gidecek.
+                /*adder = new User(
+                    val.username, val.fullname, val.usermail,
+                    val.userphone, val.team, val.manager
+                );*/
+            }
         });
-    }
-
-    qwe(values: any) {
-        console.log(values);
     }
 
     update(key: string, changes: any) {
@@ -86,5 +98,9 @@ export class DetailComponent implements OnDestroy {
         for (const key in this.dummy) {
             this.dummy[key] = null;
         }
+    }
+
+    onSelect(selectedItem: any) {
+        console.log(selectedItem);
     }
 }

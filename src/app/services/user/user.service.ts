@@ -11,6 +11,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/filter';
 
+import * as firebase from 'firebase';
+
 @Injectable()
 export class UserService {
   constructor(
@@ -91,10 +93,10 @@ export class UserService {
   createUser(param) {
     return this.auth.addUser(param)
       .then(() => {
-        this.basics.then(basics => {
+        /*this.basics.then(basics => {
           this.setLocalInfo(basics.name, basics.role)
             .then(() => this.navInChild());
-        });
+        });*/
       })
       .catch((err) => console.log(err));
   }
