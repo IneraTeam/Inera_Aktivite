@@ -1,25 +1,22 @@
 import { QueryParams } from './../../models/interfaces';
-import { AngularFire } from 'angularfire2';
+import { AngularFire, FirebaseAuthState } from 'angularfire2';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
 import { Router, CanActivate, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs/Subject';
 import { Location } from '@angular/common';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/filter';
-
-import * as firebase from 'firebase';
 
 @Injectable()
 export class UserService {
   constructor(
     private auth: AuthService, private router: Router,
     private location: Location, private act: ActivatedRoute,
-  ) {
-  }
+  ) { }
 
   get info(): firebase.Promise<any> {
     return this.db(`/users/${this.auth.id}`)
@@ -27,10 +24,12 @@ export class UserService {
   }
 
   get basics() {
-    return this.info.then((snapshot) => {
-      const name = snapshot.child('/name/').val();
-      const role = snapshot.child('/role/').val();
-      return { name: name, role: role };
+    return new Promise((resolve, reject) => {
+      resolve(this.info.then(snapshot => {
+        const name = snapshot.child('/name/').val();
+        const role = snapshot.child('/role/').val();
+        return ({ name: name, role: role });
+      }));
     });
   }
 
@@ -64,6 +63,12 @@ export class UserService {
     return this.queryparams.map(param => param['path']);
   }
 
+  checkIfPreUser(usermail) {
+    return this.db('preusers').map(preuser => {
+      return preuser.filter(pre => pre.mail === usermail);
+    });
+  }
+
   db(path, preserveshapshot?: boolean) {
     return this.auth.list(path, preserveshapshot);
   }
@@ -74,35 +79,18 @@ export class UserService {
     return new Promise((resolve, reject) => resolve(true));
   }
 
-  /* refSnapShot(param: string) {
-    return this.auth.af.database.object(`${param}`, {preserveSnapshot: false})
-    .$ref.once('value');
-  } */
-
   login(param) {
-    return this.auth.login(param)
-      .then(() => {
-        this.basics.then(basics => {
-          this.setLocalInfo(basics.name, basics.role)
-            .then(() => this.navInChild());
-        });
-      })
-      .catch((err) => console.log(err));
+    return this.auth.login(param);
   }
 
   createUser(param) {
     return this.auth.addUser(param)
-      .then(() => {
-        /*this.basics.then(basics => {
-          this.setLocalInfo(basics.name, basics.role)
-            .then(() => this.navInChild());
-        });*/
-      })
-      .catch((err) => console.log(err));
+      .then((state: FirebaseAuthState) => state.uid)
+      .catch((err) => err);
   }
 
-  navParentRoute(path: string) {
-    this.router.navigate([path]);
+  navParentRoute(path: string, queryparams?: any) {
+    this.router.navigate([path], queryparams);
   }
 
   navInChild(inPath?: string, queryparams?: QueryParams) {
