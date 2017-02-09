@@ -1,7 +1,7 @@
+import { Subject } from 'rxjs/Subject';
 import { Injectable } from '@angular/core';
 import { AngularFire, FirebaseAuthState, AngularFireAuth } from 'angularfire2';
 
-import 'rxjs/add/operator/toPromise';
 import * as firebase from 'firebase';
 
 @Injectable()
@@ -10,6 +10,7 @@ export class AuthService {
   constructor(public auth: AngularFireAuth, public af: AngularFire) {
     auth.subscribe((state: FirebaseAuthState) => {
       this.authState = state;
+      console.log('auth subs is running!');
     });
   }
 
@@ -36,12 +37,12 @@ export class AuthService {
   addUser(input): firebase.Promise<FirebaseAuthState> {
     return firebase.auth().createUserWithEmailAndPassword(
       input.email, input.password
-    ).then((signed) => {
+    )/*.then((signed) => {
       return this.list(`/users/${signed.uid}`).push('')
         .ref.parent.set({
           name: input.names,
           role: input.role
         });
-    });
+    });*/
   }
 }
