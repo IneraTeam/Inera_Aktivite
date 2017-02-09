@@ -61,21 +61,13 @@ export class DetailComponent implements OnDestroy {
                 this.user.db(target, false).push(adder)
                     .then(() => {
                         // pop-up eklenecek
-                        console.log('Müşteri eklendi');
+                        console.log('Eklendi');
                     });
             } else if (target === 'users') {
-                // var mı yok mu eklenecek
-                this.user.createUser({
-                    email: val.usermail,
-                    password: '123456',
-                    names: val.fullname,
-                    role: 'admin'
-                });
-                // kullanıcıya şifre sıfırlama maili gidecek.
-                /*adder = new User(
-                    val.username, val.fullname, val.usermail,
-                    val.userphone, val.team, val.manager
-                );*/
+                // users her yerde düzenlenecek
+                target = 'preusers';
+                adder = new User(val);
+                this.user.db(target).push(adder);
             }
         });
     }
