@@ -1,3 +1,4 @@
-# 0.0.3.5
+# 0.0.3.6
 
- - sıkıntı: Kullanıcı oluşturulduğunda auth token onunla değişiyor.
+- auto-login olayının önüne geçildi.
+- admin kullanıcı yaratabiliyor.
