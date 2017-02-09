@@ -54,21 +54,17 @@ export class DetailComponent implements OnDestroy {
         let adder: any;
         this.user.pagetarget.take(1).subscribe(target => {
             if (target === 'clients') {
-                adder = new Client(
-                    val.name, val.abbrv, val.pname,
-                    val.pphone, val.pmail, val.address
-                );
-                this.user.db(target, false).push(adder)
-                    .then(() => {
-                        // pop-up eklenecek
-                        console.log('Eklendi');
-                    });
+                adder = new Client(val);
             } else if (target === 'users') {
                 // users her yerde düzenlenecek
                 target = 'preusers';
                 adder = new User(val);
-                this.user.db(target).push(adder);
             }
+            this.user.db(target, false).push(adder)
+                .then(() => {
+                    // pop-up eklenecek
+                    console.log('Eklendi');
+                });
         });
     }
 
