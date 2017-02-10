@@ -1,0 +1,14 @@
+<div class="header" [ngClass]="{ 'mini' : !isHome }">
+  <div class="profile" *ngIf="isHome">
+    <div class="thumb_image">
+      <img class="small img-circle" src="./../../assets/images/pic_null.png" />
+    </div>
+    <div class="vh-center name-text">
+      <span> {{ name | capitalize }} </span>
+    </div>
+  </div>
+  <div class="navmenu" *ngIf="!isHome">
+    <i class="fa fa-arrow-left" (click)='navigateBack()'></i>
+    <div class="lead"> {{pagetitle}} </div>
+  </div>
+</div>

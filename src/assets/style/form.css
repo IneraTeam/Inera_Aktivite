@@ -1,0 +1,41 @@
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.form-control {
+    font-family: FontAwesome, "Open Sans", sans-serif;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.form-error {
+    border-color: rgba(177, 0, 0, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(177, 0, 0, .6);
+    transition: box-shadow .6s ease, border-color .6s ease;
+}
+
+.form-normal {
+    border-color: rgba(0, 0, 0, .15);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px transparent;
+    transition: box-shadow .6s ease, border-color .6s ease;
+}
+
+.form-okey {
+    border-color: rgba(0, 0, 0, .15);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(9, 162, 5, 0.72);
+    transition: box-shadow .6s ease, border-color .6s ease;
+}
+
+.form-control:disabled {
+    background-color: #0275d8;
+    /* btn-primary | non-fixed */
+}
+
+.form-signin .form-control:focus {
+    border-color: rgb(104, 145, 162);
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgb(104, 145, 162);
+}

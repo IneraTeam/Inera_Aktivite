@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 13px;
+}
+
+.name-text {
+  height: 80px !important;
+}
+
+.hide {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.header {
+  height: 90px;
+  padding: 15px 0;
+  transition: height .7s ease;
+}
+
+.mini {
+  height: 60px;
+  padding: 5px 0;
+}
+
+.header>* {
+  transition: opacity .3s ease, visibility .6s ease;
+}
+
+.logo {
+  padding: 20% 20px;
+  max-width: 250px;
+  margin: 40px auto;
+  display: block;
+}
+
+.img-circle {
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.small {
+  width: 80px;
+  height: 80px;
+}
+
+.list-group {
+  display: -webkit-box !important;
+}
+
+.outlet {
+  padding: 5px;
+}
+
+.menu-icon {
+  width: 100%;
+  font-size: 1.4em !important;
+}
+
+.menu-router {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.menu-item {
+  height: 80px;
+  width: 80px;
+  display: inline-flex;
+  margin: 5px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+}
+
+.menu-item>span {
+  width: 100%;
+}
+
+a,
+a:focus,
+a:hover {
+  color: black !important;
+}

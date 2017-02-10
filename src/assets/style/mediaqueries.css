@@ -1,0 +1,67 @@
+@media screen and (device-aspect-ratio: 2/3)  {
+  .list {
+    height: 360px;
+  }
+}
+
+@media screen and (device-aspect-ratio: 40/71) {
+  /* iPhone 5 */
+  .menu-item {
+    height: 80px;
+    width: 80px;
+  }
+  .name-text {
+    height: 60px !important;
+  }
+  .small {
+    height: 60px;
+    width: 60px;
+  }
+  .list-group {
+    margin: 0;
+  }
+  .list {
+    height: 450px;
+  }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  /* iPhone 6 */
+  .menu-item {
+    height: 90px;
+    width: 90px;
+  }
+  .menu .list-group {
+    margin: 0px 13px;
+  }
+  .list {
+    height: 540px;
+  }
+}
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+  /* iPhone 6 + */
+  .menu-item {
+    height: 100px;
+    width: 100px;
+  }
+  .menu .list-group {
+    margin: 0px 17px;
+  }
+  .list {
+    height: 610px;
+  }
+}
+
+@media (min-width: 1200px) {}
+
+@media (min-width: 992px) {}
+
+@media (min-width: 768px) {
+  .header {
+    height: 113px;
+  }
+  .mini {
+    height: 60px;
+  }
+}
