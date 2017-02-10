@@ -5,8 +5,6 @@ import { ThumbClient } from './../homeshell/shell/thumb_items/thumb/thumb.compon
 import { ShellComponent } from './../homeshell/shell/shell.component';
 import { NgModule } from '@angular/core';
 import { UserService } from '../services/user/user.service';
-import { ModalModule } from 'angular2-modal';
-import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,9 +14,7 @@ import { BootstrapModalModule } from 'angular2-modal/plugins/bootstrap';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
-    ModalModule.forRoot(),
-    BootstrapModalModule
+    FormsModule
   ],
   providers: [UserService],
   bootstrap: []

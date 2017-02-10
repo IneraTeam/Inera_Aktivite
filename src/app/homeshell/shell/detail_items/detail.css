@@ -26,9 +26,28 @@
 }
 
 .input-group-addon {
-    width: 40px;
+  width: 40px;
 }
 
 .btn {
+  width: 100%;
+  line-height: 1.6;
+}
+
+.dropdown-toggle::after {
+  margin: 10px 0%;
+  float: right;
+}
+
+.dropdown-toggle {
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+div.dropdown {
+  width: 87%;
+}
+
+.dropdown-menu {
   width: 100%;
 }

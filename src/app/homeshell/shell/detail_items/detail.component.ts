@@ -1,3 +1,4 @@
+import { IClient } from './../../../models/interfaces';
 import { dummyClient, dummyProject, dummyUser } from './../../../models/dummies';
 import { FirebaseListObservable } from 'angularfire2';
 import { Client, User } from './../../../models/classes';
@@ -14,6 +15,13 @@ export class DetailComponent implements OnDestroy {
     private $key: string;
     public path: string;
     public dummy;
+    public project = {
+        cSelected: 'Müşteri',
+        clients: null,
+        managers: null,
+        mSelected: 'Proje Yöneticisi'
+    };
+    public selectedClient;
     constructor(private user: UserService) {
         this.user.routerEvent.take(1).subscribe(url => {
             this.$key = this.getItemID(url) || null;
@@ -23,11 +31,13 @@ export class DetailComponent implements OnDestroy {
                     this.dummy = dummyClient;
                 } else if (target === 'projects') {
                     this.dummy = dummyProject;
+                    this.project.clients = this.db('clients');
+                    this.project.managers = this.user.admins;
                 } else if (target === 'users') {
                     this.dummy = dummyUser;
                 }
                 if (this.$key !== undefined) {
-                    this.user.db(`/${target}/${this.$key}`)
+                    this.db(`/${target}/${this.$key}`)
                         .$ref.once('value', snap => {
                             const v = snap.val();
                             // tslint:disable-next-line:whitespace
@@ -47,6 +57,10 @@ export class DetailComponent implements OnDestroy {
 
     ngOnDestroy() {
         this.clearDummyContent();
+    }
+
+    db(path) {
+        return this.user.db(path);
     }
 
     checkIfValuesExist(val) {
@@ -89,6 +103,6 @@ export class DetailComponent implements OnDestroy {
     }
 
     onSelect(selectedItem: any) {
-        console.log(selectedItem);
+        this.project[selectedItem.id] = selectedItem.innerHTML;
     }
 }

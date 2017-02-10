@@ -39,6 +39,10 @@ export class UserService {
       .map(event => event.url);
   }
 
+  get admins() {
+    return this.db('users').map( users => users.filter( user => user.role === 'admin'));
+  }
+
   get local() {
     return localStorage.getItem('userInfo');
   }

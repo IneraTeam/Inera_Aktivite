@@ -79,4 +79,36 @@
       </div>
     </form>
   </div>
+  <div *ngIf="path === 'projects' ">
+    <form #formproject="ngForm" (ngSubmit)="checkIfValuesExist(formproject.value)">
+      <div class="input-group pull-left mb-3 group">
+        <div class="input-group-addon fa fa-handshake-o"></div>
+        <div class="clientselector dropdown">
+          <button class="btn btn-secondary dropdown-toggle text-left" type="button" id="clientSelector" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"> {{project.cSelected }} </button>
+            <div class="dropdown-menu" aria-labelledby="clientSelector">
+              <span id="cSelected" *ngFor="let client of project.clients | async" class="dropdown-item" (click)="onSelect($event.target)">
+             {{ client.name }}
+             </span>
+            </div>
+        </div>
+      </div>
+      <div class="input-group pull-left mb-3 group">
+        <div class="input-group-addon fa fa-folder-o"></div>
+        <input type="text" class="form-control" id="prjname" placeholder="Proje Adı" #prjname="ngModel" ngModel name="prjname">
+      </div>
+      <div class="input-group pull-left mb-3 group">
+        <div class="input-group-addon fa fa-commenting-o"></div>
+        <div class="managerselector dropdown">
+          <button class="btn btn-secondary dropdown-toggle text-left" type="button" id="managerselector" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false"> {{project.mSelected }} </button>
+            <div class="dropdown-menu" aria-labelledby="managerselector">
+              <span id="mSelected" *ngFor="let manager of project.managers | async" class="dropdown-item" (click)="onSelect($event.target)">
+                {{ manager.name }}
+              </span>
+            </div>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
