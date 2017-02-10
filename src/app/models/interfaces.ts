@@ -14,10 +14,11 @@ export interface IProject {
   name: string;
   ptype: string;
   pmanager: string;
-  client: IClient;
-  user: IUser;
+  client: Object; // client: id, name
+  user: Object;   // user: id, name
   btype: number;
   expense: boolean;
+  createdAt;
 }
 
 export interface IUser {

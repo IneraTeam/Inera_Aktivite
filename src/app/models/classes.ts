@@ -1,4 +1,4 @@
-import { IClient, IUser } from './interfaces';
+import { IClient, IUser, IProject } from './interfaces';
 import * as firebase from 'firebase';
 
 export class Client implements IClient {
@@ -42,5 +42,26 @@ export class User implements IUser {
         this.team = val.team;
         this.manager = val.manager;
         this.role = 'user';
+    }
+}
+
+export class Project implements IProject {
+    $key?: string;
+    name: string;
+    ptype: string;
+    pmanager: string;
+    client: Object;
+    user: Object;
+    btype: number;
+    expense: boolean;
+    createdAt = firebase.database['ServerValue']['TIMESTAMP'];
+    constructor(val: any) {
+        this.name = val.name;
+        this.ptype = val.ptype;
+        this.pmanager = val.pmanager;
+        this.client = val.client; // ! OBJE
+        this.user = val.user; // ! OBJE
+        this.btype = val.btype;
+        this.expense = val.expense;
     }
 }

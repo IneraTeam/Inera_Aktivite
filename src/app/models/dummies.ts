@@ -31,8 +31,9 @@ export const dummyProject: IProject = {
   name: null,
   ptype: null,
   pmanager: null,
-  client: dummyClient,
-  user: dummyUser,
+  client: null,
+  user: null,
   btype: null,
-  expense: null
+  expense: null,
+  createdAt: null
 };

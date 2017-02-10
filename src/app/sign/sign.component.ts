@@ -33,8 +33,10 @@ export class SignComponent implements OnInit {
                 'mail': preUserData.mail,
                 'role': preUserData.role,
                 'createdAt': preUserData.createdAt,
+                'fullname': preUserData.fullname,
                 'manager': preUserData.manager,
                 'phone': preUserData.phone,
+                'actv': true,
                 'team': preUserData.team,
                 'username': preUserData.username
               })
