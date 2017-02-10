@@ -17,6 +17,22 @@ div.list {
     float:left;
 }
 
-.client{
+.activity{
     padding: 5px;
+    text-align: center;
+}
+.list-group{
+    border: 1px solid rgba(0, 0, 0, .2);
+    box-shadow: 0 4px 2px -3px rgba(0, 0, 0, .2);
+    height: 100%;
+}
+.tarih-item{
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    width:80px;
+    height:80px;
+}
+
+.fa-circle-thin{
+    font-size:80px;
 }

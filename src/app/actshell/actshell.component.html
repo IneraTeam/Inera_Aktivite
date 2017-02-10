@@ -1,4 +1,4 @@
-<div class="client">
+<div class="activity">
   <label class="sr-only" for="inlineFormInputGroup">Username</label>
   <div class="input-group mb-2 mr-sm-2 mb-sm-0 search">
     <input type="text" class="form-control" id="inlineFormInputGroup" placeholder="Ara">
@@ -6,8 +6,13 @@
   </div>
   <button class="btn btn-success add" (click)= "addActivity()"> Ekle </button>
   <div class="list">
-    <div class="list-group">
-      <!--<button type="button" class="list-group-item list-group-item-action">Dapibus ac facilisis in</button>-->
-    </div>
+    <ul class="list-group" *ngFor= "let a of act">
+     <li class ="list-group-item">
+       <span>23 Şub</span> {{a.name}}</li>
+     <li class ="list-group-item"> {{a.abbrv}} </li>
+     <li class ="list-group-item"> {{a.p_mail}} </li>
+     <li class ="list-group-item"> {{a.addres}} </li>
+     <li class ="list-group-item"> {{a.createdAt}} </li>
+    </ul>
   </div>
 </div>
