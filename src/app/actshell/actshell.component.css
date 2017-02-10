@@ -1,0 +1,22 @@
+.input-group-addon {
+    background-color: inherit;
+}
+
+.search {
+    width: 70%;
+    float:left;
+}
+
+button.add {
+    line-height: 1.5;
+    float:right;
+}
+
+div.list {
+    width: 100%;
+    float:left;
+}
+
+.client{
+    padding: 5px;
+}
