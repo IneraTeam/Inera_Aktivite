@@ -8,7 +8,8 @@
   <div class="list">
     <ul class="list-group" *ngFor= "let a of act">
      <li class ="list-group-item">
-       <span>23 Şub</span> {{a.name}}</li>
+      <i class="tarih-item">23 Şub</i> {{a.name}}
+      <i class="fa fa-pencil act-icon" (click)="navActDetail()"></i></li>
      <li class ="list-group-item"> {{a.abbrv}} </li>
      <li class ="list-group-item"> {{a.p_mail}} </li>
      <li class ="list-group-item"> {{a.addres}} </li>
